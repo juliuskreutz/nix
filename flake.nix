@@ -21,6 +21,7 @@
     catppuccin,
     nixvim,
     home-manager,
+    rwm,
     ...
   }: {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;

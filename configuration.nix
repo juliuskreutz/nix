@@ -4,6 +4,7 @@
 {
   config,
   pkgs,
+  lib,
   catppuccin,
   inputs,
   ...
@@ -11,6 +12,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    inputs.rwm.nixosModules.rwm
   ];
 
   catppuccin = {
@@ -55,12 +57,13 @@
   };
 
   # Configure keymap in X11
+  services.displayManager.enable = true;
   services.xserver = {
     enable = true;
     xkb.layout = "de";
     xkb.variant = "";
-    windowManager.dwm.enable = true;
-    displayManager.startx.enable = true;
+    displayManager.lightdm.enable = true;
+    windowManager.rwm.enable = true;
   };
 
   # Configure console keymap
@@ -81,7 +84,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    inputs.rwm.packages.x86_64-linux.default
+    feh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

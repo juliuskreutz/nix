@@ -16,6 +16,7 @@
   };
 
   home.packages = with pkgs; [
+    rwm
     st
     dmenu
     discord
@@ -64,19 +65,18 @@
     history = {
       ignoreAllDups = true;
     };
-    # plugins = [
-    #   {
-    #     name = "pure";
-    #     src = pkgs.fetchFromGitHub {
-    #       owner = "sindresorhus";
-    #       repo = "pure";
-    #       rev = "v1.23.0";
-    #       sha256 = "1jcb5cg1539iy89vm9d59g8lnp3dm0yv88mmlhkp9zwx3bihwr06";
-    #     };
-    #   }
-    # ];
+    plugins = [
+      {
+        name = "pure";
+        src = pkgs.fetchFromGitHub {
+          owner = "sindresorhus";
+          repo = "pure";
+          rev = "v1.23.0";
+          sha256 = "1jcb5cg1539iy89vm9d59g8lnp3dm0yv88mmlhkp9zwx3bihwr06";
+        };
+      }
+    ];
   };
-  programs.starship.enable = true;
   programs.fzf = {
     enable = true;
     defaultCommand = "fd --type f --color=always";
@@ -93,15 +93,21 @@
     extraOptions = ["--no-ignore"];
   };
   programs.gpg.enable = true;
-  # programs.neovim = {
-  #   enable = true;
-  #   defaultEditor = true;
-  # };
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
   };
-  programs.kitty.enable = true;
+  programs.kitty = {
+    enable = true;
+    settings = {
+      tab_bar_style = "powerline";
+      clear_all_shortcuts = true;
+      enable_audio_bell = false;
+      background_opacity = "0.8";
+      font_family = "FiraCode Nerd Font";
+      font_size = 14;
+    };
+  };
   programs.chromium.enable = true;
   programs.browserpass.enable = true;
 
