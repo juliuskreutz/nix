@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  nixvim,
   catppuccin,
   ...
 }: {
@@ -22,7 +23,12 @@
     pavucontrol
     neofetch
     dconf
+    ripgrep
+    fd
+    (nerdfonts.override {fonts = ["FiraCode"];})
   ];
+
+  fonts.fontconfig.enable = true;
 
   home.stateVersion = "23.11";
 
@@ -58,23 +64,28 @@
     history = {
       ignoreAllDups = true;
     };
-    plugins = [
-      {
-        name = "pure";
-        src = pkgs.fetchFromGitHub {
-          owner = "sindresorhus";
-          repo = "pure";
-          rev = "v1.23.0";
-          sha256 = "1jcb5cg1539iy89vm9d59g8lnp3dm0yv88mmlhkp9zwx3bihwr06";
-        };
-      }
-    ];
+    # plugins = [
+    #   {
+    #     name = "pure";
+    #     src = pkgs.fetchFromGitHub {
+    #       owner = "sindresorhus";
+    #       repo = "pure";
+    #       rev = "v1.23.0";
+    #       sha256 = "1jcb5cg1539iy89vm9d59g8lnp3dm0yv88mmlhkp9zwx3bihwr06";
+    #     };
+    #   }
+    # ];
   };
+  programs.starship.enable = true;
   programs.fzf = {
     enable = true;
-    enableZshIntegration = true;
     defaultCommand = "fd --type f --color=always";
     defaultOptions = ["--height 40%" "--reverse" "--ansi"];
+  };
+  programs.eza = {
+    enable = true;
+    git = true;
+    icons = true;
   };
   programs.fd = {
     enable = true;
@@ -82,7 +93,11 @@
     extraOptions = ["--no-ignore"];
   };
   programs.gpg.enable = true;
-  programs.neovim = {
+  # programs.neovim = {
+  #   enable = true;
+  #   defaultEditor = true;
+  # };
+  programs.nixvim = {
     enable = true;
     defaultEditor = true;
   };
