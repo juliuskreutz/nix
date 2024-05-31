@@ -5,13 +5,13 @@
   config,
   pkgs,
   lib,
-  catppuccin,
   inputs,
   ...
 }: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    inputs.catppuccin.nixosModules.catppuccin
     inputs.rwm.nixosModules.rwm
   ];
 
@@ -57,12 +57,16 @@
   };
 
   # Configure keymap in X11
-  services.displayManager.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    package = pkgs.kdePackages.sddm;
+  };
   services.xserver = {
     enable = true;
+    autoRepeatDelay = 250;
+    autoRepeatInterval = 30;
     xkb.layout = "de";
     xkb.variant = "";
-    displayManager.lightdm.enable = true;
     windowManager.rwm.enable = true;
   };
 
@@ -84,7 +88,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    feh
+    inputs.rmenu.packages.x86_64-linux.rmenu
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

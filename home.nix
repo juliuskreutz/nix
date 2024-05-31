@@ -1,13 +1,32 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
-  nixvim,
-  catppuccin,
   ...
 }: {
+  imports = [
+    inputs.catppuccin.homeManagerModules.catppuccin
+    ./nixvim
+  ];
+
+  home.pointerCursor = {
+    name = "Catppuccin-Macchiato-Dark-Cursors";
+    package = pkgs.catppuccin-cursors.macchiatoDark;
+    size = 32;
+    gtk.enable = true;
+    x11.enable = true;
+  };
+
   home.username = "julius";
   home.homeDirectory = "/home/julius";
+
+  home.sessionVariables = {
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_CACHE_HOME = "$HOME/.cache";
+    XDG_DATA_HOME = "$HOME/.local/share";
+    XDG_STATE_HOME = "$HOME/.local/state";
+  };
 
   catppuccin = {
     enable = true;
@@ -16,7 +35,6 @@
   };
 
   home.packages = with pkgs; [
-    rwm
     st
     dmenu
     discord
@@ -26,7 +44,17 @@
     dconf
     ripgrep
     fd
+    alejandra
+    vimPlugins.nvim-treesitter.withAllGrammars
+    update-nix-fetchgit
+    krita
+    xclip
     (nerdfonts.override {fonts = ["FiraCode"];})
+    (writeShellScriptBin "shot" ''
+      #!/bin/sh
+
+      ${pkgs.scrot}/bin/scrot -f -s ~/Media/screenshots/screen.png -e '${pkgs.xclip}/bin/xclip -selection clipboard -target image/png -i $f'
+    '')
   ];
 
   fonts.fontconfig.enable = true;
@@ -40,6 +68,9 @@
     enableZshIntegration = true;
     defaultCacheTtl = 3600;
     pinentryPackage = pkgs.pinentry-gnome3;
+  };
+  services.picom = {
+    enable = true;
   };
 
   programs.home-manager.enable = true;
@@ -65,18 +96,38 @@
     history = {
       ignoreAllDups = true;
     };
+    shellAliases = {
+      ".." = "cd ..";
+    };
     plugins = [
       {
         name = "pure";
         src = pkgs.fetchFromGitHub {
           owner = "sindresorhus";
           repo = "pure";
-          rev = "v1.23.0";
-          sha256 = "1jcb5cg1539iy89vm9d59g8lnp3dm0yv88mmlhkp9zwx3bihwr06";
+          rev = "da1a722238febb9a4b97c77628fae753d1817490";
+          sha256 = "0iq19nf382qq0bxidw7z6nqmhwsjy7yjjnk6ankbjdk4cp0gkmhx";
+        };
+      }
+      {
+        name = "fzf-tab";
+        src = pkgs.fetchFromGitHub {
+          owner = "Aloxaf";
+          repo = "fzf-tab";
+          rev = "c7fb028ec0bbc1056c51508602dbd61b0f475ac3";
+          sha256 = "061jjpgghn8d5q2m2cd2qdjwbz38qrcarldj16xvxbid4c137zs2";
         };
       }
     ];
+    initExtra =
+      # bash
+      ''
+        source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+      '';
   };
+
+  programs.direnv.enable = true;
+
   programs.fzf = {
     enable = true;
     defaultCommand = "fd --type f --color=always";
@@ -93,10 +144,6 @@
     extraOptions = ["--no-ignore"];
   };
   programs.gpg.enable = true;
-  programs.nixvim = {
-    enable = true;
-    defaultEditor = true;
-  };
   programs.kitty = {
     enable = true;
     settings = {
@@ -107,12 +154,23 @@
       font_family = "FiraCode Nerd Font";
       font_size = 14;
     };
+    keybindings = {
+      "command+c" = "copy_to_buffer clipboard";
+      "command+v" = "paste_from_buffer clipboard";
+      "command+shift+up" = "change_font_size all +1";
+      "command+shift+down" = "change_font_size all -1";
+      "ctrl+space>ctrl+space" = "new_tab_with_cwd";
+      "ctrl+space>n" = "next_tab";
+      "ctrl+space>ctrl+n" = "next_tab";
+      "ctrl+space>p" = "previous_tab";
+      "ctrl+space>ctrl+p" = "previous_tab";
+    };
   };
   programs.chromium.enable = true;
   programs.browserpass.enable = true;
 
   gtk = {
     enable = true;
-    cursorTheme.size = 32;
+    catppuccin.cursor.enable = false;
   };
 }
