@@ -13,6 +13,9 @@
       ];
       opts = {
         servers = {
+          gleam = {
+            settings = {};
+          };
           rust_analyzer = {
             settings = {
               rust-analyzer = {
@@ -22,7 +25,9 @@
               };
             };
           };
-          taplo = {};
+          taplo = {
+            settings = {};
+          };
         };
       };
       config =
@@ -51,6 +56,7 @@
             local lspconfig = require("lspconfig")
 
             for name, server in pairs(opts.servers) do
+                print(name)
                 server.capabilities = capabilities
                 server.on_attach = on_attach
                 lspconfig[name].setup(server)

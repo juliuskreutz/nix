@@ -98,6 +98,7 @@
     };
     shellAliases = {
       ".." = "cd ..";
+      "cat" = "bat";
     };
     plugins = [
       {
@@ -122,7 +123,7 @@
     initExtra =
       # bash
       ''
-        source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+        bindkey -v '^?' backward-delete-char
       '';
   };
 
@@ -168,6 +169,7 @@
   };
   programs.chromium.enable = true;
   programs.browserpass.enable = true;
+  programs.bat.enable = true;
 
   gtk = {
     enable = true;
