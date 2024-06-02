@@ -13,9 +13,9 @@
       ];
       opts = {
         servers = {
-          gleam = {
-            settings = {};
-          };
+          # gleam = {
+          #   settings = {};
+          # };
           rust_analyzer = {
             settings = {
               rust-analyzer = {
