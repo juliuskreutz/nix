@@ -16,5 +16,6 @@
     ./trouble.nix
     ./undotree.nix
   ];
+
   programs.nixvim.plugins.lazy.enable = true;
 }

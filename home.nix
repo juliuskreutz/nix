@@ -124,6 +124,7 @@
       # bash
       ''
         bindkey -v '^?' backward-delete-char
+        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always --icons $realpath'
       '';
   };
 

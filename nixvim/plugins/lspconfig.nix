@@ -1,6 +1,6 @@
 {
   pkgs,
-  lib,
+  config,
   ...
 }: {
   programs.nixvim.plugins.lazy.plugins = with pkgs.vimPlugins; [
@@ -13,9 +13,6 @@
       ];
       opts = {
         servers = {
-          # gleam = {
-          #   settings = {};
-          # };
           rust_analyzer = {
             settings = {
               rust-analyzer = {
@@ -25,9 +22,8 @@
               };
             };
           };
-          taplo = {
-            settings = {};
-          };
+          gleam = config.nixvim.helpers.emptyTable;
+          taplo = config.nixvim.helpers.emptyTable;
         };
       };
       config =
@@ -56,7 +52,6 @@
             local lspconfig = require("lspconfig")
 
             for name, server in pairs(opts.servers) do
-                print(name)
                 server.capabilities = capabilities
                 server.on_attach = on_attach
                 lspconfig[name].setup(server)
