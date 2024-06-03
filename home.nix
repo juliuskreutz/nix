@@ -1,7 +1,5 @@
 {
   inputs,
-  config,
-  lib,
   pkgs,
   ...
 }: {
@@ -49,6 +47,8 @@
     update-nix-fetchgit
     krita
     xclip
+    prettierd
+    exercism
     (nerdfonts.override {fonts = ["FiraCode"];})
     (writeShellScriptBin "shot" ''
       #!/bin/sh

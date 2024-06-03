@@ -9,6 +9,7 @@
     ./lspconfig.nix
     ./lualine.nix
     ./oil.nix
+    ./sleuth.nix
     ./telescope.nix
     ./theme.nix
     ./todo-comments.nix

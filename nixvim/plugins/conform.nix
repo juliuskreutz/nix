@@ -9,6 +9,7 @@
       opts = {
         formatters_by_ft = {
           nix = ["alejandra"];
+          json = ["prettierd"];
           toml = ["taplo"];
           sql = ["pg_format"];
         };
