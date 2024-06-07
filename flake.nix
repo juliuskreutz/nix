@@ -16,6 +16,10 @@
       url = "github:juliuskreutz/rmenu";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    rstatus = {
+      url = "github:juliuskreutz/rstatus";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };

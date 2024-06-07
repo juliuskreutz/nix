@@ -9,7 +9,7 @@
   ];
 
   home.pointerCursor = {
-    name = "Catppuccin-Macchiato-Dark-Cursors";
+    name = "catppuccin-macchiato-dark-cursors";
     package = pkgs.catppuccin-cursors.macchiatoDark;
     size = 32;
     gtk.enable = true;
@@ -24,6 +24,8 @@
     XDG_CACHE_HOME = "$HOME/.cache";
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
+    _JAVA_AWT_WM_NONREPARENTING = 1;
+    AWT_TOOLKIT = "MToolkit";
   };
 
   catppuccin = {
@@ -33,6 +35,8 @@
   };
 
   home.packages = with pkgs; [
+    inputs.rmenu.packages.x86_64-linux.rmenu
+    inputs.rstatus.packages.x86_64-linux.rstatus
     st
     dmenu
     discord

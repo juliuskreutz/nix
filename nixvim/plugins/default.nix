@@ -8,6 +8,7 @@
     ./fidget.nix
     ./lspconfig.nix
     ./lualine.nix
+    ./markdown-preview.nix
     ./oil.nix
     ./sleuth.nix
     ./telescope.nix

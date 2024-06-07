@@ -86,7 +86,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    inputs.rmenu.packages.x86_64-linux.rmenu
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

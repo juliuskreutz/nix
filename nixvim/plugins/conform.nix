@@ -10,6 +10,7 @@
         formatters_by_ft = {
           nix = ["alejandra"];
           json = ["prettierd"];
+          markdown = ["prettierd"];
           toml = ["taplo"];
           sql = ["pg_format"];
         };
