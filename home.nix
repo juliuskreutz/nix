@@ -175,9 +175,27 @@
   programs.chromium.enable = true;
   programs.browserpass.enable = true;
   programs.bat.enable = true;
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      pkief.material-icon-theme
+      svelte.svelte-vscode
+      bradlc.vscode-tailwindcss
+    ];
+  };
 
   gtk = {
     enable = true;
-    catppuccin.cursor.enable = false;
+    # catppuccin = {
+    #   enable = true;
+    #   accent = "peach";
+    # };
+    theme = {
+      name = "Catppuccin-Macchiato-Standard-Peach-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = ["peach"];
+        variant = "macchiato";
+      };
+    };
   };
 }
