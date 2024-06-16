@@ -37,8 +37,8 @@
   home.packages = with pkgs; [
     inputs.rmenu.packages.x86_64-linux.rmenu
     inputs.rstatus.packages.x86_64-linux.rstatus
-    st
-    dmenu
+    zip
+    unzip
     discord
     pass
     pavucontrol
@@ -53,6 +53,7 @@
     xclip
     prettierd
     exercism
+    yubioath-flutter
     (nerdfonts.override {fonts = ["FiraCode"];})
     (writeShellScriptBin "shot" ''
       #!/bin/sh
@@ -181,15 +182,61 @@
       pkief.material-icon-theme
       svelte.svelte-vscode
       bradlc.vscode-tailwindcss
+      ms-vscode.live-server
     ];
+  };
+
+  programs.thunderbird = {
+    enable = true;
+    profiles = {
+      personal = {
+        isDefault = true;
+      };
+    };
+  };
+
+  accounts.email.accounts = {
+    personal = {
+      address = "julius@kreutz.au";
+      imap = {
+        host = "ventraip.email";
+        port = 993;
+      };
+      mbsync = {
+        enable = true;
+        create = "maildir";
+      };
+      thunderbird.enable = true;
+      primary = true;
+      realName = "Julius Kreutz";
+      smtp = {
+        host = "ventraip.email";
+        port = 465;
+      };
+      userName = "julius@kreutz.au";
+    };
+    # dev = {
+    #   address = "julius@kreutz.dev";
+    #   gpg = {
+    #     key = "F7D6E4644ACD05A4";
+    #     signByDefault = true;
+    #   };
+    #   imap = {
+    #     host = "ventraip.email";
+    #     port = 993;
+    #   };
+    #   realName = "Julius Kreutz";
+    #   smtp = {
+    #     host = "ventraip.email";
+    #     port = 465;
+    #   };
+    #   thunderbird.enable = true;
+    #   userName = "julius@kreutz.au";
+    # };
   };
 
   gtk = {
     enable = true;
-    # catppuccin = {
-    #   enable = true;
-    #   accent = "peach";
-    # };
     theme = {
       name = "Catppuccin-Macchiato-Standard-Peach-Dark";
       package = pkgs.catppuccin-gtk.override {

@@ -9,6 +9,7 @@
     ./lspconfig.nix
     ./lualine.nix
     ./markdown-preview.nix
+    ./neogit.nix
     ./oil.nix
     ./sleuth.nix
     ./telescope.nix

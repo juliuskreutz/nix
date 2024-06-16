@@ -11,7 +11,6 @@
           nix = ["alejandra"];
           json = ["prettierd"];
           markdown = ["prettierd"];
-          toml = ["taplo"];
           sql = ["pg_format"];
         };
         format_on_save = {

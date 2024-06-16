@@ -33,6 +33,8 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  virtualisation.podman.enable = true;
+
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -67,6 +69,7 @@
     xkb.variant = "";
     windowManager.rwm.enable = true;
   };
+  services.pcscd.enable = true;
 
   # Configure console keymap
   console.keyMap = "de";
@@ -93,6 +96,7 @@
   # programs.mtr.enable = true;
 
   programs.zsh.enable = true;
+  programs.noisetorch.enable = true;
 
   services.dbus.packages = [pkgs.gcr];
 
