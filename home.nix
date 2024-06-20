@@ -54,10 +54,9 @@
     prettierd
     exercism
     yubioath-flutter
+    rustup
     (nerdfonts.override {fonts = ["FiraCode"];})
     (writeShellScriptBin "shot" ''
-      #!/bin/sh
-
       ${pkgs.scrot}/bin/scrot -f -s ~/Media/screenshots/screen.png -e '${pkgs.xclip}/bin/xclip -selection clipboard -target image/png -i $f'
     '')
   ];

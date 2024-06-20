@@ -6,6 +6,7 @@
     # ./copilot.nix
     ./crates.nix
     ./fidget.nix
+    ./gitsigns.nix
     ./lspconfig.nix
     ./lualine.nix
     ./markdown-preview.nix
