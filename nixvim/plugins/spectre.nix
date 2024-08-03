@@ -1,9 +1,9 @@
 {pkgs, ...}: {
   programs.nixvim.plugins.lazy.plugins = with pkgs.vimPlugins; [
     {
-      pkg = trouble-nvim;
-      cmd = "Trouble";
-      dependencies = [nvim-web-devicons];
+      pkg = nvim-spectre;
+      cmd = "Spectre";
+      dependencies = [plenary-nvim];
       config = true;
     }
   ];

@@ -7,6 +7,7 @@
   ];
 
   programs.nixvim = {
+    defaultEditor = true;
     enable = true;
     viAlias = true;
     vimAlias = true;

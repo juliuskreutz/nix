@@ -33,6 +33,11 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+
+  services.blueman.enable = true;
+
   virtualisation.docker = {
     enable = true;
     rootless = {
@@ -40,6 +45,7 @@
       setSocketVariable = true;
     };
   };
+  virtualisation.podman.enable = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -76,6 +82,19 @@
     windowManager.rwm.enable = true;
   };
   services.pcscd.enable = true;
+  services.postgresql = {
+    enable = true;
+    ensureUsers = [
+      {
+        name = "julius";
+        ensureClauses.superuser = true;
+        ensureClauses.login = true;
+      }
+    ];
+    authentication = ''
+      host all all 0.0.0.0/0 trust
+    '';
+  };
 
   # Configure console keymap
   console.keyMap = "de";

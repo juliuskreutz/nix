@@ -8,6 +8,9 @@
     ./nixvim
   ];
 
+  # nixpkgs.config = import ./nixpkgs-config.nix;
+  # xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs-config.nix;
+
   home.pointerCursor = {
     name = "catppuccin-macchiato-dark-cursors";
     package = pkgs.catppuccin-cursors.macchiatoDark;
@@ -32,6 +35,7 @@
     enable = true;
     flavor = "macchiato";
     accent = "peach";
+    pointerCursor.enable = false;
   };
 
   home.packages = with pkgs; [
@@ -55,6 +59,13 @@
     exercism
     yubioath-flutter
     rustup
+    bottom
+    lsof
+    ffmpeg
+    ntfs3g
+    unrar
+    gparted
+    jq
     (nerdfonts.override {fonts = ["FiraCode"];})
     (writeShellScriptBin "shot" ''
       ${pkgs.scrot}/bin/scrot -f -s ~/Media/screenshots/screen.png -e '${pkgs.xclip}/bin/xclip -selection clipboard -target image/png -i $f'
@@ -179,10 +190,21 @@
     enable = true;
     extensions = with pkgs.vscode-extensions; [
       pkief.material-icon-theme
+      esbenp.prettier-vscode
       svelte.svelte-vscode
       bradlc.vscode-tailwindcss
-      ms-vscode.live-server
+      ritwickdey.liveserver
     ];
+  };
+  programs.bun.enable = true;
+  programs.ssh = {
+    enable = true;
+    matchBlocks = {
+      stardb = {
+        hostname = "94.103.188.220";
+        user = "root";
+      };
+    };
   };
 
   programs.thunderbird = {
@@ -214,34 +236,42 @@
       };
       userName = "julius@kreutz.au";
     };
-    # dev = {
-    #   address = "julius@kreutz.dev";
-    #   gpg = {
-    #     key = "F7D6E4644ACD05A4";
-    #     signByDefault = true;
-    #   };
-    #   imap = {
-    #     host = "ventraip.email";
-    #     port = 993;
-    #   };
-    #   realName = "Julius Kreutz";
-    #   smtp = {
-    #     host = "ventraip.email";
-    #     port = 465;
-    #   };
-    #   thunderbird.enable = true;
-    #   userName = "julius@kreutz.au";
-    # };
+    dev = {
+      address = "julius@kreutz.dev";
+      imap = {
+        host = "mail.hosting.de";
+        port = 993;
+      };
+      mbsync = {
+        enable = true;
+        create = "maildir";
+      };
+      thunderbird.enable = true;
+      realName = "Julius Kreutz";
+      smtp = {
+        host = "mail.hosting.de";
+        port = 465;
+      };
+      userName = "julius@kreutz.dev";
+    };
+    gmail = {
+      address = "juliuskreutz.jk@gmail.com";
+      flavor = "gmail.com";
+      mbsync = {
+        enable = true;
+        create = "maildir";
+      };
+      thunderbird.enable = true;
+      realName = "Julius Kreutz";
+      userName = "juliuskreutz.jk@gmail.com";
+    };
   };
 
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Macchiato-Standard-Peach-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = ["peach"];
-        variant = "macchiato";
-      };
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
     };
   };
 }

@@ -22,10 +22,10 @@
               };
             };
           };
-          gleam = config.nixvim.helpers.emptyTable;
-          taplo = config.nixvim.helpers.emptyTable;
-          pyright = config.nixvim.helpers.emptyTable;
-          ruff = config.nixvim.helpers.emptyTable;
+          gleam = config.lib.nixvim.emptyTable;
+          taplo = config.lib.nixvim.emptyTable;
+          pyright = config.lib.nixvim.emptyTable;
+          ruff = config.lib.nixvim.emptyTable;
         };
       };
       config =

@@ -1,5 +1,6 @@
 {
   imports = [
+    ./abolish.nix
     ./autopairs.nix
     ./cmp.nix
     ./conform.nix
@@ -13,12 +14,14 @@
     ./neogit.nix
     ./oil.nix
     ./sleuth.nix
+    ./spectre.nix
     ./telescope.nix
     ./theme.nix
     ./todo-comments.nix
     ./treesitter.nix
     ./trouble.nix
     ./undotree.nix
+    ./wakatime.nix
   ];
 
   programs.nixvim.plugins.lazy.enable = true;
