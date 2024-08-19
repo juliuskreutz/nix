@@ -26,6 +26,7 @@
           taplo = config.lib.nixvim.emptyTable;
           pyright = config.lib.nixvim.emptyTable;
           ruff = config.lib.nixvim.emptyTable;
+          zls = config.lib.nixvim.emptyTable;
         };
       };
       config =

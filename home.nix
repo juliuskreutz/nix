@@ -66,6 +66,8 @@
     unrar
     gparted
     jq
+    tokei
+    libreoffice-qt
     (nerdfonts.override {fonts = ["FiraCode"];})
     (writeShellScriptBin "shot" ''
       ${pkgs.scrot}/bin/scrot -f -s ~/Media/screenshots/screen.png -e '${pkgs.xclip}/bin/xclip -selection clipboard -target image/png -i $f'
