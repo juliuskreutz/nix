@@ -1,30 +1,35 @@
 {
-  programs.nixvim.opts = {
-    number = true;
-    relativenumber = true;
+  programs.nixvim = {
+    opts = {
+      number = true;
+      relativenumber = true;
 
-    # vim-sleuth
-    # tabstop = 4;
-    # softtabstop = 4;
-    # shiftwidth = 4;
-    # expandtab = true;
+      # vim-sleuth
+      # tabstop = 4;
+      # softtabstop = 4;
+      # shiftwidth = 4;
+      # expandtab = true;
 
-    breakindent = true;
+      breakindent = true;
 
-    hlsearch = false;
-    ignorecase = true;
-    smartcase = true;
-    inccommand = "split";
+      hlsearch = false;
+      ignorecase = true;
+      smartcase = true;
+      inccommand = "split";
 
-    scrolloff = 8;
+      scrolloff = 8;
 
-    signcolumn = "yes";
+      signcolumn = "yes";
 
-    splitright = true;
-    splitbelow = true;
+      splitright = true;
+      splitbelow = true;
 
-    conceallevel = 2;
+      conceallevel = 2;
 
-    showbreak = "↳ ";
+      showbreak = "↳ ";
+    };
+    filetype.extension = {
+      btm = "bottom";
+    };
   };
 }

@@ -27,6 +27,7 @@
           pyright = config.lib.nixvim.emptyTable;
           ruff = config.lib.nixvim.emptyTable;
           zls = config.lib.nixvim.emptyTable;
+          bottom = config.lib.nixvim.emptyTable;
         };
       };
       config =
@@ -53,6 +54,15 @@
             end
 
             local lspconfig = require("lspconfig")
+            local configs = require("lspconfig.configs")
+
+            configs.bottom = {
+                default_config = {
+                    cmd = {"/home/julius/Projects/rust/bottom/target/release/bottom", "lsp"},
+                    root_dir = lspconfig.util.root_pattern(".git"),
+                    filetypes = {"bottom"},
+                },
+            }
 
             for name, server in pairs(opts.servers) do
                 server.capabilities = capabilities

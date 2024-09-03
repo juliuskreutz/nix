@@ -68,6 +68,7 @@
     jq
     tokei
     libreoffice-qt
+    wakatime-cli
     (nerdfonts.override {fonts = ["FiraCode"];})
     (writeShellScriptBin "shot" ''
       ${pkgs.scrot}/bin/scrot -f -s ~/Media/screenshots/screen.png -e '${pkgs.xclip}/bin/xclip -selection clipboard -target image/png -i $f'
@@ -123,8 +124,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "sindresorhus";
           repo = "pure";
-          rev = "da1a722238febb9a4b97c77628fae753d1817490";
-          sha256 = "0iq19nf382qq0bxidw7z6nqmhwsjy7yjjnk6ankbjdk4cp0gkmhx";
+          rev = "92b8e9057988566b37ff695e70e2e9bbeb7196c8";
+          sha256 = "1q6pxa1lq21f9956v1684bgkfrkdfx4jy9n8gvffp0672agapcsd";
         };
       }
       {
@@ -132,8 +133,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "Aloxaf";
           repo = "fzf-tab";
-          rev = "c7fb028ec0bbc1056c51508602dbd61b0f475ac3";
-          sha256 = "061jjpgghn8d5q2m2cd2qdjwbz38qrcarldj16xvxbid4c137zs2";
+          rev = "7fed01afba9392b6392408b9a0cf888522ed7a10";
+          sha256 = "0mjbk718c64yisjff7fpzpn4zd772gmhm7rl6mgbzfq5ry0q2bh7";
         };
       }
     ];
