@@ -207,6 +207,10 @@
         hostname = "94.103.188.220";
         user = "root";
       };
+      guoba = {
+        hostname = "95.179.225.104";
+        user = "root";
+      };
     };
   };
 
