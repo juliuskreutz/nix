@@ -26,7 +26,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
-  networking. enableIPv6 = false;
+  # networking. enableIPv6 = false;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -37,6 +37,7 @@
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
   services.blueman.enable = true;
+  services.cloudflare-warp.enable = true;
 
   virtualisation.docker = {
     enable = true;

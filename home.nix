@@ -8,9 +8,6 @@
     ./nixvim
   ];
 
-  # nixpkgs.config = import ./nixpkgs-config.nix;
-  # xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs-config.nix;
-
   home.pointerCursor = {
     name = "catppuccin-macchiato-dark-cursors";
     package = pkgs.catppuccin-cursors.macchiatoDark;
@@ -69,6 +66,8 @@
     tokei
     libreoffice-qt
     wakatime-cli
+    obs-studio
+    miru
     (nerdfonts.override {fonts = ["FiraCode"];})
     (writeShellScriptBin "shot" ''
       ${pkgs.scrot}/bin/scrot -f -s ~/Media/screenshots/screen.png -e '${pkgs.xclip}/bin/xclip -selection clipboard -target image/png -i $f'
