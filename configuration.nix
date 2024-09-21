@@ -9,6 +9,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./nvidia.nix
     inputs.catppuccin.nixosModules.catppuccin
     inputs.rwm.nixosModules.rwm
   ];
@@ -69,11 +70,11 @@
     LC_TIME = "en_AU.UTF-8";
   };
 
-  # Configure keymap in X11
   services.displayManager.sddm = {
     enable = true;
     package = pkgs.kdePackages.sddm;
   };
+  # Configure keymap in X11
   services.xserver = {
     enable = true;
     autoRepeatDelay = 250;

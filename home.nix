@@ -38,6 +38,7 @@
   home.packages = with pkgs; [
     inputs.rmenu.packages.x86_64-linux.rmenu
     inputs.rstatus.packages.x86_64-linux.rstatus
+    inputs.comic-code-ligatures-nerd-font.packages.x86_64-linux.comic-code-ligatures-nerd-font
     zip
     unzip
     discord
@@ -68,7 +69,6 @@
     wakatime-cli
     obs-studio
     miru
-    (nerdfonts.override {fonts = ["FiraCode"];})
     (writeShellScriptBin "shot" ''
       ${pkgs.scrot}/bin/scrot -f -s ~/Media/screenshots/screen.png -e '${pkgs.xclip}/bin/xclip -selection clipboard -target image/png -i $f'
     '')
@@ -170,7 +170,7 @@
       clear_all_shortcuts = true;
       enable_audio_bell = false;
       background_opacity = "0.8";
-      font_family = "FiraCode Nerd Font";
+      font_family = "ComicCodeLigatures Nerd Font";
       font_size = 14;
     };
     keybindings = {
@@ -190,13 +190,32 @@
   programs.bat.enable = true;
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      pkief.material-icon-theme
-      esbenp.prettier-vscode
-      svelte.svelte-vscode
-      bradlc.vscode-tailwindcss
-      ritwickdey.liveserver
-    ];
+    extensions = with pkgs.vscode-extensions;
+      [
+        pkief.material-icon-theme
+        esbenp.prettier-vscode
+        svelte.svelte-vscode
+        bradlc.vscode-tailwindcss
+        ritwickdey.liveserver
+        rust-lang.rust-analyzer
+        fill-labs.dependi
+        tamasfe.even-better-toml
+      ]
+      ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "argus";
+          publisher = "gavinleroy";
+          version = "0.1.13";
+          sha256 = "MmGSNMfCtbQzR31Ji9kXHxe8ZUV97zZ0zbyJAcjOxuc=";
+        }
+      ];
+    userSettings = {
+      "workbench.iconTheme" = "material-icon-theme";
+      "workbench.colorTheme" = "Catppuccin Macchiato";
+      "editor.fontFamily" = "ComicCodeLigatures Nerd Font";
+      "editor.mouseWheelZoom" = true;
+      "rust-analyzer.check.command" = "clippy";
+    };
   };
   programs.bun.enable = true;
   programs.ssh = {

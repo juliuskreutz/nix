@@ -20,6 +20,10 @@
       url = "github:juliuskreutz/rstatus";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    comic-code-ligatures-nerd-font = {
+      url = "git+ssh://git@github.com/juliuskreutz/ComicCodeLigaturesNerdFont";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
