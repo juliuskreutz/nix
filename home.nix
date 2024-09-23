@@ -6,6 +6,8 @@
   imports = [
     inputs.catppuccin.homeManagerModules.catppuccin
     ./nixvim
+    # ./sway
+    ./river
   ];
 
   home.pointerCursor = {
@@ -39,13 +41,15 @@
     inputs.rmenu.packages.x86_64-linux.rmenu
     inputs.rstatus.packages.x86_64-linux.rstatus
     inputs.comic-code-ligatures-nerd-font.packages.x86_64-linux.comic-code-ligatures-nerd-font
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
     zip
     unzip
     discord
     pass
     pavucontrol
     neofetch
-    dconf
     ripgrep
     fd
     alejandra

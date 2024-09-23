@@ -11,6 +11,7 @@
           nix = ["alejandra"];
           json = ["jq"];
           markdown = ["prettierd"];
+          css = ["prettierd"];
           sql = ["pg_format"];
         };
         format_on_save = {

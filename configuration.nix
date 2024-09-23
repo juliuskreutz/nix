@@ -70,19 +70,18 @@
     LC_TIME = "en_AU.UTF-8";
   };
 
-  services.displayManager.sddm = {
-    enable = true;
-    package = pkgs.kdePackages.sddm;
-  };
-  # Configure keymap in X11
-  services.xserver = {
-    enable = true;
-    autoRepeatDelay = 250;
-    autoRepeatInterval = 30;
-    xkb.layout = "de";
-    xkb.variant = "";
-    windowManager.rwm.enable = true;
-  };
+  # services.displayManager.sddm = {
+  #   enable = true;
+  #   package = pkgs.kdePackages.sddm;
+  # };
+  # services.xserver = {
+  #   enable = true;
+  #   autoRepeatDelay = 250;
+  #   autoRepeatInterval = 30;
+  #   xkb.layout = "de";
+  #   xkb.variant = "";
+  #   windowManager.rwm.enable = true;
+  # };
   services.pcscd.enable = true;
   services.postgresql = {
     enable = true;
@@ -124,6 +123,7 @@
 
   programs.zsh.enable = true;
   programs.noisetorch.enable = true;
+  programs.dconf.enable = true;
 
   services.dbus.packages = [pkgs.gcr];
 
