@@ -11,8 +11,13 @@
     ./hardware-configuration.nix
     ./nvidia.nix
     inputs.catppuccin.nixosModules.catppuccin
-    inputs.rwm.nixosModules.rwm
   ];
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    config.common.default = ["wlr"];
+  };
 
   catppuccin = {
     enable = true;
@@ -20,14 +25,15 @@
     accent = "peach";
   };
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = ["nix-command" "flakes" "impure-derivations" "ca-derivations"];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
-  # networking. enableIPv6 = false;
+  networking.enableIPv6 = false;
+  boot.kernelParams = ["ipv6.disable=1"];
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -42,12 +48,11 @@
 
   virtualisation.docker = {
     enable = true;
-    # rootless = {
-    #   enable = true;
-    #   setSocketVariable = true;
-    # };
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
   };
-  virtualisation.podman.enable = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -70,18 +75,17 @@
     LC_TIME = "en_AU.UTF-8";
   };
 
-  # services.displayManager.sddm = {
-  #   enable = true;
-  #   package = pkgs.kdePackages.sddm;
-  # };
-  # services.xserver = {
-  #   enable = true;
-  #   autoRepeatDelay = 250;
-  #   autoRepeatInterval = 30;
-  #   xkb.layout = "de";
-  #   xkb.variant = "";
-  #   windowManager.rwm.enable = true;
-  # };
+  services.displayManager.sessionPackages = [pkgs.river];
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    package = pkgs.kdePackages.sddm;
+    catppuccin.background = "${./wallpaper.png}";
+    catppuccin.loginBackground = false;
+  };
+  services.xserver = {
+    xkb.layout = "de";
+  };
   services.pcscd.enable = true;
   services.postgresql = {
     enable = true;
@@ -152,5 +156,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 }

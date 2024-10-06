@@ -8,18 +8,18 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    rwm = {
-      url = "github:juliuskreutz/rwm";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    rmenu = {
-      url = "github:juliuskreutz/rmenu";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    rstatus = {
-      url = "github:juliuskreutz/rstatus";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # rwm = {
+    #   url = "github:juliuskreutz/rwm";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # rmenu = {
+    #   url = "github:juliuskreutz/rmenu";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # rstatus = {
+    #   url = "github:juliuskreutz/rstatus";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     comic-code-ligatures-nerd-font = {
       url = "git+ssh://git@github.com/juliuskreutz/ComicCodeLigaturesNerdFont";
       inputs.nixpkgs.follows = "nixpkgs";

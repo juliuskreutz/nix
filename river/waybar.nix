@@ -21,6 +21,7 @@
         };
 
         "battery" = {
+          interval = 60;
           format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
           format = "{icon} {capacity}%";
           format-charging = "{icon} {capacity}%";

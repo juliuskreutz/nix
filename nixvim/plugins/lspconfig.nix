@@ -13,6 +13,7 @@
       ];
       opts = {
         servers = {
+          nil_ls = config.lib.nixvim.emptyTable;
           rust_analyzer = {
             settings = {
               rust-analyzer = {
@@ -24,11 +25,11 @@
           };
           gleam = config.lib.nixvim.emptyTable;
           taplo = config.lib.nixvim.emptyTable;
-          # pyright = config.lib.nixvim.emptyTable;
-          basedpyright = config.lib.nixvim.emptyTable;
+          pyright = config.lib.nixvim.emptyTable;
           ruff = config.lib.nixvim.emptyTable;
           zls = config.lib.nixvim.emptyTable;
           bottom = config.lib.nixvim.emptyTable;
+          dockerls = config.lib.nixvim.emptyTable;
         };
       };
       config =

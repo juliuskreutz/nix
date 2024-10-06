@@ -21,7 +21,7 @@
 }
 
 #tags button.occupied {
-  border-bottom: 2px solid @peach;
+  border-bottom: 2px solid @blue;
 }
 
 #window {

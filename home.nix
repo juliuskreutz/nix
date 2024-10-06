@@ -6,7 +6,6 @@
   imports = [
     inputs.catppuccin.homeManagerModules.catppuccin
     ./nixvim
-    # ./sway
     ./river
   ];
 
@@ -38,21 +37,21 @@
   };
 
   home.packages = with pkgs; [
-    inputs.rmenu.packages.x86_64-linux.rmenu
-    inputs.rstatus.packages.x86_64-linux.rstatus
     inputs.comic-code-ligatures-nerd-font.packages.x86_64-linux.comic-code-ligatures-nerd-font
+    vesktop
+    xdg-utils
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
     zip
     unzip
-    discord
     pass
     pavucontrol
     neofetch
     ripgrep
     fd
     alejandra
+    nil
     vimPlugins.nvim-treesitter.withAllGrammars
     update-nix-fetchgit
     krita
@@ -73,14 +72,15 @@
     wakatime-cli
     obs-studio
     miru
-    (writeShellScriptBin "shot" ''
-      ${pkgs.scrot}/bin/scrot -f -s ~/Media/screenshots/screen.png -e '${pkgs.xclip}/bin/xclip -selection clipboard -target image/png -i $f'
-    '')
+    dockerfile-language-server-nodejs
+    grim
+    wl-clipboard
+    slurp
   ];
 
   fonts.fontconfig.enable = true;
 
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 
   services.gpg-agent = {
     enable = true;
@@ -189,7 +189,10 @@
       "ctrl+space>ctrl+p" = "previous_tab";
     };
   };
-  programs.chromium.enable = true;
+  programs.chromium = {
+    enable = true;
+    commandLineArgs = ["--enable-features=WaylandWindowDecorations" "--ozone-platform-hint=auto"];
+  };
   programs.browserpass.enable = true;
   programs.bat.enable = true;
   programs.vscode = {
@@ -219,6 +222,8 @@
       "editor.fontFamily" = "ComicCodeLigatures Nerd Font";
       "editor.mouseWheelZoom" = true;
       "rust-analyzer.check.command" = "clippy";
+      "svelte.enable-ts-plugin" = true;
+      "editor.formatOnSave" = true;
     };
   };
   programs.bun.enable = true;
