@@ -76,6 +76,7 @@
     grim
     wl-clipboard
     slurp
+    wget
   ];
 
   fonts.fontconfig.enable = true;
