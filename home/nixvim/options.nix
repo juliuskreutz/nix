@@ -4,12 +4,6 @@
       number = true;
       relativenumber = true;
 
-      # vim-sleuth
-      # tabstop = 4;
-      # softtabstop = 4;
-      # shiftwidth = 4;
-      # expandtab = true;
-
       breakindent = true;
 
       hlsearch = false;

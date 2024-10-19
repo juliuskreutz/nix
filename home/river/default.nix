@@ -19,6 +19,7 @@
           "Super+Shift Return" = "spawn ${pkgs.kitty}/bin/kitty";
           "Super E" = "spawn ${pkgs.chromium}/bin/chromium";
           "Super P" = "spawn ${pkgs.fuzzel}/bin/fuzzel";
+          "Super S" = "spawn shot";
           # Super+[1-9] to focus tag [0-8]
           "Super 1" = "set-focused-tags 1";
           "Super 2" = "set-focused-tags 2";
@@ -50,10 +51,10 @@
       keyboard-layout = "de";
       set-repeat = "30 250";
       default-layout = "rivertile";
-      focus-follows-cursor = "normal";
+      focus-follows-cursor = "always";
       spawn = [
         "rivertile"
-        "\"${pkgs.swaybg}/bin/swaybg -i ${../wallpaper.png} -m fill\""
+        "\"${pkgs.swaybg}/bin/swaybg -i ${../../wallpaper.png} -m fill\""
         "waybar"
       ];
     };
