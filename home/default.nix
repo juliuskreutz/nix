@@ -113,8 +113,16 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Adwaita-dark";
-      package = pkgs.gnome-themes-extra;
+      # name = "Adwaita-dark";
+      # package = pkgs.gnome-themes-extra;
+      name = "catppuccin-macchiato-blue-compact";
+      package =
+        pkgs.catppuccin-gtk.override
+        {
+          accents = ["blue"];
+          variant = "macchiato";
+          size = "compact";
+        };
     };
   };
 }
