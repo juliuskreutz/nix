@@ -1,4 +1,23 @@
 {pkgs, ...}: {
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    config.common.default = ["wlr"];
+  };
+
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+
   services.displayManager.sessionPackages = [pkgs.river];
   services.displayManager.sddm = {
     enable = true;

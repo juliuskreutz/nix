@@ -8,14 +8,32 @@
     ./river
     ./packages.nix
     ./programs.nix
+    ./services.nix
     inputs.catppuccin.homeManagerModules.catppuccin
   ];
+
+  programs.home-manager.enable = true;
+  home.stateVersion = "24.05";
 
   catppuccin = {
     enable = true;
     flavor = "macchiato";
     accent = "peach";
     pointerCursor.enable = false;
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "catppuccin-macchiato-blue-compact";
+      package =
+        pkgs.catppuccin-gtk.override
+        {
+          accents = ["blue"];
+          variant = "macchiato";
+          size = "compact";
+        };
+    };
   };
 
   home.pointerCursor = {
@@ -39,19 +57,6 @@
   };
 
   fonts.fontconfig.enable = true;
-
-  home.stateVersion = "24.05";
-
-  services.gpg-agent = {
-    enable = true;
-    enableScDaemon = true;
-    enableSshSupport = true;
-    enableZshIntegration = true;
-    defaultCacheTtl = 3600;
-    pinentryPackage = pkgs.pinentry-gnome3;
-  };
-
-  programs.home-manager.enable = true;
 
   accounts.email.accounts = {
     personal = {
@@ -107,22 +112,6 @@
       };
       realName = "Julius Kreutz";
       userName = "juliuskreutz.jk@gmail.com";
-    };
-  };
-
-  gtk = {
-    enable = true;
-    theme = {
-      # name = "Adwaita-dark";
-      # package = pkgs.gnome-themes-extra;
-      name = "catppuccin-macchiato-blue-compact";
-      package =
-        pkgs.catppuccin-gtk.override
-        {
-          accents = ["blue"];
-          variant = "macchiato";
-          size = "compact";
-        };
     };
   };
 }

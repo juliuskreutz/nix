@@ -24,15 +24,12 @@
     krita
     xclip
     prettierd
-    exercism
     yubioath-flutter
     rustup
     bottom
-    lsof
     ffmpeg
     ntfs3g
     unrar
-    gparted
     jq
     tokei
     libreoffice-qt
