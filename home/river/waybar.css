@@ -1,0 +1,42 @@
+* {
+  font-family: ComicCodeLigatures Nerd Font;
+  font-size: 18px;
+}
+
+#waybar {
+  background: transparent;
+  margin: 5px 5px;
+}
+
+#tags {
+  border-radius: 1rem;
+  margin: 5px;
+  background-color: @surface0;
+  color: @text;
+}
+
+#tags button.focused {
+  background-color: @blue;
+  color: @crust;
+}
+
+#tags button.occupied {
+  border-bottom: 2px solid @blue;
+}
+
+#window {
+  border-radius: 1rem;
+  margin: 5px;
+  background-color: @surface0;
+  padding: 0rem 1rem;
+  color: @text;
+}
+
+#clock,
+#battery {
+  border-radius: 1rem;
+  margin: 5px;
+  background-color: @surface0;
+  padding: 0rem 1rem;
+  color: @text;
+}
