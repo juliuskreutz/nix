@@ -10,11 +10,16 @@
     powerOnBoot = true;
   };
 
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
+  virtualisation = {
+    docker = {
       enable = true;
-      setSocketVariable = true;
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+    };
+    podman = {
+      enable = true;
     };
   };
 
@@ -44,7 +49,7 @@
     '';
   };
   services.blueman.enable = true;
-  services.cloudflare-warp.enable = true;
+  # services.cloudflare-warp.enable = true;
   services.dbus.packages = [pkgs.gcr];
   services.pipewire = {
     enable = true;

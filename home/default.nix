@@ -13,7 +13,7 @@
   ];
 
   programs.home-manager.enable = true;
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
 
   catppuccin = {
     enable = true;
@@ -55,51 +55,41 @@
     _JAVA_AWT_WM_NONREPARENTING = 1;
     AWT_TOOLKIT = "MToolkit";
   };
+  home.sessionPath = ["$HOME/.cargo/bin"];
 
   fonts.fontconfig.enable = true;
 
   accounts.email.accounts = {
     main = {
       address = "julius@kreu.tz";
-      flavor = "gmail.com";
+      imap = {
+        host = "imappro.zoho.eu";
+        port = 993;
+      };
+      smtp = {
+        host = "smtppro.zoho.eu";
+        port = 465;
+      };
       mbsync = {
         enable = true;
         create = "maildir";
       };
       thunderbird = {
         enable = true;
-        settings = id: {
-          "mail.smtpserver.smtp_${id}.authMethod" = 10;
-          "mail.server.server_${id}.authMethod" = 10;
-        };
       };
       primary = true;
       realName = "Julius Kreutz";
       userName = "julius@kreu.tz";
     };
-    personal = {
-      address = "julius@kreutz.au";
-      imap = {
-        host = "ventraip.email";
-        port = 993;
-      };
-      mbsync = {
-        enable = true;
-        create = "maildir";
-      };
-      thunderbird.enable = true;
-      realName = "Julius Kreutz";
-      smtp = {
-        host = "ventraip.email";
-        port = 465;
-      };
-      userName = "julius@kreutz.au";
-    };
     dev = {
       address = "julius@kreutz.dev";
       imap = {
-        host = "mail.hosting.de";
+        host = "imappro.zoho.eu";
         port = 993;
+      };
+      smtp = {
+        host = "smtppro.zoho.eu";
+        port = 465;
       };
       mbsync = {
         enable = true;
@@ -107,28 +97,7 @@
       };
       thunderbird.enable = true;
       realName = "Julius Kreutz";
-      smtp = {
-        host = "mail.hosting.de";
-        port = 465;
-      };
       userName = "julius@kreutz.dev";
-    };
-    gmail = {
-      address = "juliuskreutz.jk@gmail.com";
-      flavor = "gmail.com";
-      mbsync = {
-        enable = true;
-        create = "maildir";
-      };
-      thunderbird = {
-        enable = true;
-        settings = id: {
-          "mail.smtpserver.smtp_${id}.authMethod" = 10;
-          "mail.server.server_${id}.authMethod" = 10;
-        };
-      };
-      realName = "Julius Kreutz";
-      userName = "juliuskreutz.jk@gmail.com";
     };
   };
 }

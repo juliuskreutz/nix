@@ -15,7 +15,10 @@
     hidden = true;
     extraOptions = ["--no-ignore"];
   };
-  programs.gpg.enable = true;
+  programs.gpg = {
+    enable = true;
+    scdaemonSettings.disable-ccid = true;
+  };
   programs.kitty = {
     enable = true;
     settings = {
@@ -48,7 +51,7 @@
     enable = true;
     extensions = with pkgs.vscode-extensions;
       [
-        vscode-extensions.catppuccin.catppuccin-vsc
+        catppuccin.catppuccin-vsc
         pkief.material-icon-theme
         esbenp.prettier-vscode
         wakatime.vscode-wakatime
@@ -118,7 +121,7 @@
   programs.thunderbird = {
     enable = true;
     profiles = {
-      personal = {
+      main = {
         isDefault = true;
       };
     };

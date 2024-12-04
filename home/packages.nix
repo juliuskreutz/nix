@@ -49,5 +49,8 @@
       '')
     feh
     veracrypt
+    gh
+    scrcpy
+    pcmanfm
   ];
 }

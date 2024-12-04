@@ -9,10 +9,14 @@
 }
 
 #tags {
-  border-radius: 1rem;
+  border-radius: 8px;
   margin: 5px;
   background-color: @surface0;
   color: @text;
+}
+
+#tags button {
+  border: 2px solid transparent;
 }
 
 #tags button.focused {
@@ -21,11 +25,11 @@
 }
 
 #tags button.occupied {
-  border-bottom: 2px solid @blue;
+  border: 2px solid @blue;
 }
 
 #window {
-  border-radius: 1rem;
+  border-radius: 8px;
   margin: 5px;
   background-color: @surface0;
   padding: 0rem 1rem;
@@ -34,7 +38,7 @@
 
 #clock,
 #battery {
-  border-radius: 1rem;
+  border-radius: 8px;
   margin: 5px;
   background-color: @surface0;
   padding: 0rem 1rem;
