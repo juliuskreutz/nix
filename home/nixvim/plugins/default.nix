@@ -8,6 +8,7 @@
     ./crates.nix
     ./fidget.nix
     ./gitsigns.nix
+    ./indent-blankline.nix
     ./lspconfig.nix
     ./lualine.nix
     ./markdown-preview.nix

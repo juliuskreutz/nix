@@ -68,7 +68,27 @@
             }
 
             for name, server in pairs(opts.servers) do
-                server.capabilities = capabilities
+                if (name == "rust_analyzer")
+                then
+                  -- server.capabilities = vim.lsp.protocol.make_client_capabilities()
+                  server.capabilities = require("cmp_nvim_lsp").default_capabilities({
+                    resolveSupport = {
+                      properties = {
+                        "documentation",
+                        "detail",
+                        "additionalTextEdits",
+                        "sortText",
+                        "filterText",
+                        "insertText",
+                        "insertTextFormat",
+                        "insertTextMode"
+                      }
+                    }
+                  })
+                else
+                  server.capabilities = capabilities
+                end
+
                 server.on_attach = on_attach
                 lspconfig[name].setup(server)
             end

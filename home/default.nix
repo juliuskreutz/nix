@@ -55,7 +55,6 @@
     _JAVA_AWT_WM_NONREPARENTING = 1;
     AWT_TOOLKIT = "MToolkit";
   };
-  home.sessionPath = ["$HOME/.cargo/bin"];
 
   fonts.fontconfig.enable = true;
 
