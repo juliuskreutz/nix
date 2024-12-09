@@ -3,7 +3,9 @@
     {
       pkg = oil-nvim;
       dependencies = [nvim-web-devicons];
-      config = true;
+      opts.win_options = {
+        signcolumn = "yes:2";
+      };
     }
   ];
 }

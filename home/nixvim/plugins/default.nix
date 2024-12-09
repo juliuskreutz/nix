@@ -14,6 +14,7 @@
     ./markdown-preview.nix
     ./neogit.nix
     ./oil.nix
+    ./oil-git-status.nix
     ./sleuth.nix
     ./spectre.nix
     ./telescope.nix
