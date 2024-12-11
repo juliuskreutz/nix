@@ -1,6 +1,8 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   parserInstallDir = "$XDG_DATA_HOME/nvim/treesitter";
-in {
+in
+{
   programs.nixvim = {
     extraPackages = with pkgs; [
       gcc

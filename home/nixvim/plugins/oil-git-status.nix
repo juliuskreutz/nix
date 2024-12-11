@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nixvim.plugins.lazy.plugins = with pkgs.vimPlugins; [
     {
       pkg = pkgs.vimUtils.buildVimPlugin {
@@ -10,7 +11,7 @@
           sha256 = "sha256-IXjpuzWipF7Pjp4N92ZuNKktYNe5oTYzyCykqkmNRkg=";
         };
       };
-      dependencies = [oil-nvim];
+      dependencies = [ oil-nvim ];
       config = true;
     }
   ];

@@ -1,9 +1,13 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nixvim.plugins.lazy.plugins = with pkgs.vimPlugins; [
     {
       pkg = nvim-cmp;
       event = "InsertEnter";
-      dependencies = [cmp-path luasnip];
+      dependencies = [
+        cmp-path
+        luasnip
+      ];
       config =
         # lua
         ''

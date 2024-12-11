@@ -19,12 +19,18 @@
         action = "\"_dP";
       }
       {
-        mode = ["n" "v"];
+        mode = [
+          "n"
+          "v"
+        ];
         key = "<leader>d";
         action = "\"_d";
       }
       {
-        mode = ["n" "v"];
+        mode = [
+          "n"
+          "v"
+        ];
         key = "<leader>y";
         action = "\"+y";
       }

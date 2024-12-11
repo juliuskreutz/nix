@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   hardware.graphics = {
     enable = true;
   };
@@ -7,7 +8,7 @@
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;

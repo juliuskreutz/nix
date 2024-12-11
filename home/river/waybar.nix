@@ -1,11 +1,15 @@
-{...}: {
+{ ... }:
+{
   programs.waybar = {
     enable = true;
     settings = {
       mainBar = {
-        modules-left = ["river/tags"];
-        modules-center = ["river/window"];
-        modules-right = ["clock" "battery"];
+        modules-left = [ "river/tags" ];
+        modules-center = [ "river/window" ];
+        modules-right = [
+          "clock"
+          "battery"
+        ];
 
         "river/tags" = {
           num-tags = 9;
@@ -22,7 +26,19 @@
 
         "battery" = {
           interval = 60;
-          format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+          format-icons = [
+            "󰂎"
+            "󰁺"
+            "󰁻"
+            "󰁼"
+            "󰁽"
+            "󰁾"
+            "󰁿"
+            "󰂀"
+            "󰂁"
+            "󰂂"
+            "󰁹"
+          ];
           format = "{icon} {capacity}%";
           format-charging = "{icon} {capacity}%";
         };

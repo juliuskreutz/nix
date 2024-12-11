@@ -2,7 +2,8 @@
   inputs,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./nixvim
     ./river
@@ -26,13 +27,11 @@
     enable = true;
     theme = {
       name = "catppuccin-macchiato-blue-compact";
-      package =
-        pkgs.catppuccin-gtk.override
-        {
-          accents = ["blue"];
-          variant = "macchiato";
-          size = "compact";
-        };
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "blue" ];
+        variant = "macchiato";
+        size = "compact";
+      };
     };
   };
 
@@ -79,24 +78,6 @@
       primary = true;
       realName = "Julius Kreutz";
       userName = "julius@kreu.tz";
-    };
-    dev = {
-      address = "julius@kreutz.dev";
-      imap = {
-        host = "imappro.zoho.eu";
-        port = 993;
-      };
-      smtp = {
-        host = "smtppro.zoho.eu";
-        port = 465;
-      };
-      mbsync = {
-        enable = true;
-        create = "maildir";
-      };
-      thunderbird.enable = true;
-      realName = "Julius Kreutz";
-      userName = "julius@kreutz.dev";
     };
   };
 }

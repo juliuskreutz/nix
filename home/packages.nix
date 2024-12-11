@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   home.packages = with pkgs; [
     inputs.comic-code-ligatures-nerd-font.packages.x86_64-linux.comic-code-ligatures-nerd-font
     vesktop
@@ -13,11 +14,12 @@
     zip
     unzip
     pass
+    proton-pass
     pavucontrol
     neofetch
     ripgrep
     fd
-    alejandra
+    nixfmt-rfc-style
     nil
     vimPlugins.nvim-treesitter.withAllGrammars
     update-nix-fetchgit
@@ -35,22 +37,25 @@
     libreoffice-qt
     wakatime-cli
     obs-studio
-    (miru.overrideAttrs (finalAttrs: previousAttrs: {
-      buildCommand = builtins.replaceStrings ["Exec=miru"] ["Exec=miru --in-process-gpu"] previousAttrs.buildCommand;
-    }))
+    (miru.overrideAttrs (
+      finalAttrs: previousAttrs: {
+        buildCommand =
+          builtins.replaceStrings [ "Exec=miru" ] [ "Exec=miru --in-process-gpu" ]
+            previousAttrs.buildCommand;
+      }
+    ))
     dockerfile-language-server-nodejs
     wl-clipboard
     wget
     xournalpp
-    (pkgs.writeShellScriptBin
-      "shot"
-      ''
-        ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.wl-clipboard}/bin/wl-copy
-      '')
+    (pkgs.writeShellScriptBin "shot" ''
+      ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.wl-clipboard}/bin/wl-copy
+    '')
     feh
     veracrypt
     gh
     scrcpy
     pcmanfm
+    (callPackage ./zoho.nix { })
   ];
 }

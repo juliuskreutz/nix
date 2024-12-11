@@ -1,8 +1,9 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    config.common.default = ["wlr"];
+    config.common.default = [ "wlr" ];
   };
 
   hardware.bluetooth = {
@@ -23,7 +24,7 @@
     };
   };
 
-  services.displayManager.sessionPackages = [pkgs.river];
+  services.displayManager.sessionPackages = [ pkgs.river ];
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
@@ -49,7 +50,7 @@
     '';
   };
   services.blueman.enable = true;
-  services.dbus.packages = [pkgs.gcr];
+  services.dbus.packages = [ pkgs.gcr ];
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -59,8 +60,10 @@
       "disable-auto-gain" = {
         "pulse.rules" = [
           {
-            matches = [{"media.class" = "Audio/Source";}];
-            actions = {quirks = ["block-source-volume"];};
+            matches = [ { "media.class" = "Audio/Source"; } ];
+            actions = {
+              quirks = [ "block-source-volume" ];
+            };
           }
         ];
       };

@@ -1,9 +1,10 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nixvim.plugins.lazy.plugins = with pkgs.vimPlugins; [
     {
       pkg = nvim-autopairs;
       event = "InsertEnter";
-      dependencies = [nvim-cmp];
+      dependencies = [ nvim-cmp ];
       config =
         # lua
         ''

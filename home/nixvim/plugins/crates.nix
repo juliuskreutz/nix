@@ -1,9 +1,13 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nixvim.plugins.lazy.plugins = with pkgs.vimPlugins; [
     {
       pkg = crates-nvim;
       event = "BufRead Cargo.toml";
-      dependencies = [plenary-nvim nvim-cmp];
+      dependencies = [
+        plenary-nvim
+        nvim-cmp
+      ];
       opts = {
         lsp = {
           enabled = true;

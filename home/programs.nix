@@ -1,9 +1,14 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.direnv.enable = true;
   programs.fzf = {
     enable = true;
     defaultCommand = "${pkgs.fd}/bin/fd --type f --color=always";
-    defaultOptions = ["--height 40%" "--reverse" "--ansi"];
+    defaultOptions = [
+      "--height 40%"
+      "--reverse"
+      "--ansi"
+    ];
   };
   programs.eza = {
     enable = true;
@@ -13,7 +18,7 @@
   programs.fd = {
     enable = true;
     hidden = true;
-    extraOptions = ["--no-ignore"];
+    extraOptions = [ "--no-ignore" ];
   };
   programs.gpg = {
     enable = true;
@@ -43,13 +48,17 @@
   };
   programs.chromium = {
     enable = true;
-    commandLineArgs = ["--enable-features=WaylandWindowDecorations" "--ozone-platform-hint=auto"];
+    commandLineArgs = [
+      "--enable-features=WaylandWindowDecorations"
+      "--ozone-platform-hint=auto"
+    ];
   };
   programs.browserpass.enable = true;
   programs.bat.enable = true;
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions;
+    extensions =
+      with pkgs.vscode-extensions;
       [
         catppuccin.catppuccin-vsc
         pkief.material-icon-theme

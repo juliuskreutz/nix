@@ -1,9 +1,13 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nixvim.plugins.lazy.plugins = with pkgs.vimPlugins; [
     {
       pkg = telescope-nvim;
       event = "VimEnter";
-      dependencies = [plenary-nvim telescope-ui-select-nvim];
+      dependencies = [
+        plenary-nvim
+        telescope-ui-select-nvim
+      ];
       config =
         # lua
         ''
