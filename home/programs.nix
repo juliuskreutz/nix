@@ -127,14 +127,6 @@
       };
     };
   };
-  programs.thunderbird = {
-    enable = true;
-    profiles = {
-      main = {
-        isDefault = true;
-      };
-    };
-  };
   programs.git = {
     enable = true;
     userEmail = "julius@kreutz.dev";

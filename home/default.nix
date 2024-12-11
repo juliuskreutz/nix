@@ -56,28 +56,4 @@
   };
 
   fonts.fontconfig.enable = true;
-
-  accounts.email.accounts = {
-    main = {
-      address = "julius@kreu.tz";
-      imap = {
-        host = "imappro.zoho.eu";
-        port = 993;
-      };
-      smtp = {
-        host = "smtppro.zoho.eu";
-        port = 465;
-      };
-      mbsync = {
-        enable = true;
-        create = "maildir";
-      };
-      thunderbird = {
-        enable = true;
-      };
-      primary = true;
-      realName = "Julius Kreutz";
-      userName = "julius@kreu.tz";
-    };
-  };
 }

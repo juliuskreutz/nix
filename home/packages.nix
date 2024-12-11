@@ -13,7 +13,6 @@
     noto-fonts-emoji
     zip
     unzip
-    pass
     proton-pass
     pavucontrol
     neofetch

@@ -28,8 +28,9 @@ appimageTools.wrapType1 {
     description = "Zoho Mail Desktop Lite client";
     homepage = "https://www.zoho.com/mail/desktop/";
     license = lib.licenses.unfree;
-    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
     maintainers = with lib.maintainers; [ juliuskreutz ];
     platforms = [ "x86_64-linux" ];
+    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
+    mainProgram = "zoho-mail-desktop";
   };
 }
