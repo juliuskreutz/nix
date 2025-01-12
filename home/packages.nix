@@ -19,6 +19,7 @@
     ripgrep
     fd
     nixfmt-rfc-style
+    nixd
     nil
     vimPlugins.nvim-treesitter.withAllGrammars
     update-nix-fetchgit
@@ -36,19 +37,22 @@
     libreoffice-qt
     wakatime-cli
     obs-studio
-    (miru.overrideAttrs (
-      finalAttrs: previousAttrs: {
-        buildCommand =
-          builtins.replaceStrings [ "Exec=miru" ] [ "Exec=miru --in-process-gpu" ]
-            previousAttrs.buildCommand;
-      }
-    ))
+    miru
+    # (miru.overrideAttrs (
+    #   finalAttrs: previousAttrs: {
+    #     buildCommand =
+    #       builtins.replaceStrings [ "Exec=miru" ] [ "Exec=miru --in-process-gpu" ]
+    #         previousAttrs.buildCommand;
+    #   }
+    # ))
     dockerfile-language-server-nodejs
     wl-clipboard
     wget
     xournalpp
-    (pkgs.writeShellScriptBin "shot" ''
-      ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.wl-clipboard}/bin/wl-copy
+    (writeShellScriptBin "shot" ''
+      # ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" ~/Media/screenshots/screenshot.png
+      # ${grim}/bin/grim -g "$(${slurp}/bin/slurp)" "$HOME/Media/screenshots/screenshot_$(($(ls "$HOME/Media/screenshots" | grep -oP 'screenshot_\K[0-9]+' | sort -n | tail -1 || echo 0) + 1)).png"
+      FILE="$HOME/Screenshots/screenshot_$(($(ls "$HOME/Screenshots" | grep -oP 'screenshot_\K[0-9]+' | sort -n | tail -1) + 1)).png" && ${grim}/bin/grim -g "$(${slurp}/bin/slurp)" "$FILE" && ${wl-clipboard}/bin/wl-copy < "$FILE"
     '')
     feh
     veracrypt

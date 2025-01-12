@@ -14,6 +14,7 @@
       ];
       opts = {
         servers = {
+          nixd = config.lib.nixvim.emptyTable;
           nil_ls = config.lib.nixvim.emptyTable;
           rust_analyzer = {
             settings = {
@@ -38,6 +39,16 @@
         # lua
         ''
           function(_, opts)
+            for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
+                local default_diagnostic_handler = vim.lsp.handlers[method]
+                vim.lsp.handlers[method] = function(err, result, context, config)
+                    if err ~= nil and err.code == -32802 then
+                        return
+                    end
+                    return default_diagnostic_handler(err, result, context, config)
+                end
+            end
+
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             local on_attach = function(client, bufnr)
@@ -71,7 +82,6 @@
             for name, server in pairs(opts.servers) do
                 if (name == "rust_analyzer")
                 then
-                  -- server.capabilities = vim.lsp.protocol.make_client_capabilities()
                   server.capabilities = require("cmp_nvim_lsp").default_capabilities({
                     resolveSupport = {
                       properties = {

@@ -24,13 +24,15 @@
     };
   };
 
+  catppuccin.sddm.enable = false;
+  # catppuccin.sddm.background = ../wallpaper.png;
+  # catppuccin.sddm.loginBackground = false;
+
   services.displayManager.sessionPackages = [ pkgs.river ];
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    package = pkgs.kdePackages.sddm;
-    catppuccin.background = ../wallpaper.png;
-    catppuccin.loginBackground = false;
+    # package = pkgs.kdePackages.sddm;
   };
   services.xserver = {
     xkb.layout = "de";
@@ -38,6 +40,7 @@
   services.pcscd.enable = true;
   services.postgresql = {
     enable = true;
+    package = pkgs.postgresql_17;
     ensureUsers = [
       {
         name = "julius";

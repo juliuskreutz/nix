@@ -17,7 +17,7 @@
           "Super F" = "toggle-fullscreen";
           "Super H" = "swap left";
           "Super L" = "swap right";
-          "Super+Shift Return" = "spawn ${pkgs.kitty}/bin/kitty";
+          "Super+Shift Return" = "spawn ${pkgs.ghostty}/bin/ghostty";
           "Super E" = "spawn ${pkgs.chromium}/bin/chromium";
           "Super P" = "spawn ${pkgs.fuzzel}/bin/fuzzel";
           "Super S" = "spawn shot";
@@ -58,9 +58,6 @@
         "\"${pkgs.swaybg}/bin/swaybg -i ${../../wallpaper.png} -m fill\""
         "waybar"
       ];
-    };
-    extraSessionVariables = {
-      NIXOS_OZONE_WL = "1";
     };
   };
 }

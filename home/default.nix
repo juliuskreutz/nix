@@ -20,7 +20,7 @@
     enable = true;
     flavor = "macchiato";
     accent = "peach";
-    pointerCursor.enable = false;
+    cursors.enable = false;
   };
 
   gtk = {
@@ -53,6 +53,7 @@
     XDG_STATE_HOME = "$HOME/.local/state";
     _JAVA_AWT_WM_NONREPARENTING = 1;
     AWT_TOOLKIT = "MToolkit";
+    NIXOS_OZONE_WL = "1";
   };
 
   fonts.fontconfig.enable = true;

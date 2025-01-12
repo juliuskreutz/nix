@@ -24,36 +24,32 @@
     enable = true;
     scdaemonSettings.disable-ccid = true;
   };
-  programs.kitty = {
-    enable = true;
-    settings = {
-      tab_bar_style = "powerline";
-      clear_all_shortcuts = true;
-      enable_audio_bell = false;
-      background_opacity = "0.8";
-      font_family = "ComicCodeLigatures Nerd Font";
-      font_size = 14;
-    };
-    keybindings = {
-      "command+c" = "copy_to_buffer clipboard";
-      "command+v" = "paste_from_buffer clipboard";
-      "command+shift+up" = "change_font_size all +1";
-      "command+shift+down" = "change_font_size all -1";
-      "ctrl+space>ctrl+space" = "new_tab_with_cwd";
-      "ctrl+space>n" = "next_tab";
-      "ctrl+space>ctrl+n" = "next_tab";
-      "ctrl+space>p" = "previous_tab";
-      "ctrl+space>ctrl+p" = "previous_tab";
-    };
-  };
+  # programs.kitty = {
+  #   enable = true;
+  #   settings = {
+  #     tab_bar_style = "powerline";
+  #     clear_all_shortcuts = true;
+  #     enable_audio_bell = false;
+  #     background_opacity = "0.8";
+  #     font_family = "ComicCodeLigatures Nerd Font";
+  #     font_size = 14;
+  #   };
+  #   keybindings = {
+  #     "command+c" = "copy_to_buffer clipboard";
+  #     "command+v" = "paste_from_buffer clipboard";
+  #     "command+shift+up" = "change_font_size all +1";
+  #     "command+shift+down" = "change_font_size all -1";
+  #     "ctrl+space>ctrl+space" = "new_tab_with_cwd";
+  #     "ctrl+space>n" = "next_tab";
+  #     "ctrl+space>ctrl+n" = "next_tab";
+  #     "ctrl+space>p" = "previous_tab";
+  #     "ctrl+space>ctrl+p" = "previous_tab";
+  #   };
+  # };
   programs.chromium = {
     enable = true;
-    commandLineArgs = [
-      "--enable-features=WaylandWindowDecorations"
-      "--ozone-platform-hint=auto"
-    ];
+    commandLineArgs = [ "--disable-gpu-compositing" ];
   };
-  programs.browserpass.enable = true;
   programs.bat.enable = true;
   programs.vscode = {
     enable = true;
@@ -132,7 +128,7 @@
     userEmail = "julius@kreutz.dev";
     userName = "Julius Kreutz";
     signing = {
-      key = null;
+      key = "EBE7 5BC0 5820 6BC9 F440  895F F7D6 E464 4ACD 05A4";
       signByDefault = true;
     };
     extraConfig = {
@@ -164,8 +160,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "Aloxaf";
           repo = "fzf-tab";
-          rev = "b6e1b22458a131f835c6fe65bdb88eb45093d2d2";
-          sha256 = "04mj0kfjai8yzgh0z7s7jqdckap7c1n9mssa9gpx7b5mlfjz63p0";
+          rev = "6aced3f35def61c5edf9d790e945e8bb4fe7b305";
+          sha256 = "1brljd9744wg8p9v3q39kdys33jb03d27pd0apbg1cz0a2r1wqqi";
         };
       }
     ];
@@ -175,5 +171,29 @@
         bindkey -v '^?' backward-delete-char
         zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always --icons $realpath'
       '';
+  };
+
+  programs.ghostty = {
+    enable = true;
+    clearDefaultKeybinds = true;
+    settings = {
+      theme = "catppuccin-macchiato";
+      font-family = "ComicCodeLigatures Nerd Font";
+      font-size = 14;
+      window-decoration = false;
+      background-opacity = 0.8;
+      keybind = [
+        "super+c=copy_to_clipboard"
+        "super+v=paste_from_clipboard"
+        "super+shift+up=increase_font_size:1"
+        "super+shift+down=decrease_font_size:1"
+        "ctrl+space>n=new_tab"
+        "ctrl+space>ctrl+n=new_tab"
+        "ctrl+space>l=next_tab"
+        "ctrl+space>ctrl+l=next_tab"
+        "ctrl+space>h=previous_tab"
+        "ctrl+space>ctrl+h=previous_tab"
+      ];
+    };
   };
 }
