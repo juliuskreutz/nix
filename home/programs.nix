@@ -24,31 +24,8 @@
     enable = true;
     scdaemonSettings.disable-ccid = true;
   };
-  # programs.kitty = {
-  #   enable = true;
-  #   settings = {
-  #     tab_bar_style = "powerline";
-  #     clear_all_shortcuts = true;
-  #     enable_audio_bell = false;
-  #     background_opacity = "0.8";
-  #     font_family = "ComicCodeLigatures Nerd Font";
-  #     font_size = 14;
-  #   };
-  #   keybindings = {
-  #     "command+c" = "copy_to_buffer clipboard";
-  #     "command+v" = "paste_from_buffer clipboard";
-  #     "command+shift+up" = "change_font_size all +1";
-  #     "command+shift+down" = "change_font_size all -1";
-  #     "ctrl+space>ctrl+space" = "new_tab_with_cwd";
-  #     "ctrl+space>n" = "next_tab";
-  #     "ctrl+space>ctrl+n" = "next_tab";
-  #     "ctrl+space>p" = "previous_tab";
-  #     "ctrl+space>ctrl+p" = "previous_tab";
-  #   };
-  # };
   programs.chromium = {
     enable = true;
-    commandLineArgs = [ "--disable-gpu-compositing" ];
   };
   programs.bat.enable = true;
   programs.vscode = {

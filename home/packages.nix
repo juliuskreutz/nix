@@ -26,6 +26,7 @@
     krita
     xclip
     prettierd
+    nodejs
     yubioath-flutter
     rustup
     bottom
@@ -38,13 +39,6 @@
     wakatime-cli
     obs-studio
     miru
-    # (miru.overrideAttrs (
-    #   finalAttrs: previousAttrs: {
-    #     buildCommand =
-    #       builtins.replaceStrings [ "Exec=miru" ] [ "Exec=miru --in-process-gpu" ]
-    #         previousAttrs.buildCommand;
-    #   }
-    # ))
     dockerfile-language-server-nodejs
     wl-clipboard
     wget

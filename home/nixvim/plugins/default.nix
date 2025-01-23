@@ -4,7 +4,6 @@
     ./autopairs.nix
     ./cmp.nix
     ./conform.nix
-    # ./copilot.nix
     ./crates.nix
     ./fidget.nix
     ./gitsigns.nix
@@ -14,7 +13,6 @@
     ./markdown-preview.nix
     ./neogit.nix
     ./oil.nix
-    # ./oil-git-status.nix
     ./sleuth.nix
     ./spectre.nix
     ./telescope.nix

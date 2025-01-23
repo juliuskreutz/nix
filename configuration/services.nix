@@ -24,15 +24,14 @@
     };
   };
 
-  catppuccin.sddm.enable = false;
-  # catppuccin.sddm.background = ../wallpaper.png;
-  # catppuccin.sddm.loginBackground = false;
+  catppuccin.sddm.background = ../wallpaper.png;
+  catppuccin.sddm.loginBackground = false;
 
   services.displayManager.sessionPackages = [ pkgs.river ];
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    # package = pkgs.kdePackages.sddm;
+    package = pkgs.kdePackages.sddm;
   };
   services.xserver = {
     xkb.layout = "de";
