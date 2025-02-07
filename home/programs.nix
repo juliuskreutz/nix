@@ -98,6 +98,10 @@
         hostname = "95.179.225.104";
         user = "root";
       };
+      allianz-arena = {
+        hostname = "94.16.117.113";
+        user = "root";
+      };
     };
   };
   programs.git = {
@@ -157,7 +161,7 @@
       theme = "catppuccin-macchiato";
       font-family = "ComicCodeLigatures Nerd Font";
       font-size = 14;
-      window-decoration = false;
+      gtk-titlebar = false;
       background-opacity = 0.8;
       keybind = [
         "super+c=copy_to_clipboard"

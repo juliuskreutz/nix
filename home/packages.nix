@@ -14,6 +14,7 @@
     zip
     unzip
     proton-pass
+    protonvpn-gui
     pavucontrol
     neofetch
     ripgrep
@@ -27,7 +28,6 @@
     xclip
     prettierd
     nodejs
-    yubioath-flutter
     rustup
     bottom
     ffmpeg
