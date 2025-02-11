@@ -90,6 +90,10 @@
   programs.ssh = {
     enable = true;
     matchBlocks = {
+      kreutz-fun = {
+        hostname = "5.252.227.206";
+        user = "root";
+      };
       stardb = {
         hostname = "94.103.188.220";
         user = "root";

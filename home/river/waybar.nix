@@ -7,6 +7,7 @@
         modules-left = [ "river/tags" ];
         modules-center = [ "river/window" ];
         modules-right = [
+          "tray"
           "clock"
           "battery"
         ];
@@ -17,6 +18,11 @@
 
         "river/window" = {
           max-length = 50;
+        };
+
+        "tray" = {
+          icon-size = 24;
+          spacing = 8;
         };
 
         "clock" = {

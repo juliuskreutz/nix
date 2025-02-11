@@ -36,6 +36,7 @@
   color: @text;
 }
 
+#tray,
 #clock,
 #battery {
   border-radius: 8px;

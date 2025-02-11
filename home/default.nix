@@ -7,7 +7,7 @@
   imports = [
     ./nixvim
     ./river
-    ./packages.nix
+    ./packages
     ./programs.nix
     ./services.nix
     inputs.catppuccin.homeManagerModules.catppuccin

@@ -13,7 +13,7 @@
     noto-fonts-emoji
     zip
     unzip
-    proton-pass
+    # proton-pass
     protonvpn-gui
     pavucontrol
     neofetch
@@ -54,5 +54,6 @@
     scrcpy
     pcmanfm
     (callPackage ./zoho.nix { })
+    (callPackage ./proton-pass.nix { })
   ];
 }
