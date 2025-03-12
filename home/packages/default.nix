@@ -6,6 +6,7 @@
 {
   home.packages = with pkgs; [
     inputs.comic-code-ligatures-nerd-font.packages.x86_64-linux.comic-code-ligatures-nerd-font
+    devenv
     vesktop
     xdg-utils
     noto-fonts
@@ -20,7 +21,6 @@
     fd
     nixfmt-rfc-style
     nixd
-    nil
     vimPlugins.nvim-treesitter.withAllGrammars
     update-nix-fetchgit
     krita
@@ -52,7 +52,7 @@
     gh
     scrcpy
     pcmanfm
-    unityhub
+    obsidian
     (callPackage ./zoho.nix { })
     (callPackage ./proton-pass.nix { })
   ];
