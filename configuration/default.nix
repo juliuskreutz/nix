@@ -26,6 +26,12 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.networkmanager.enable = true;
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [
+      5201
+    ];
+  };
 
   time.timeZone = "Europe/Berlin";
 

@@ -100,6 +100,14 @@
         hostname = "94.103.188.220";
         user = "root";
       };
+      uncover = {
+        hostname = "213.232.235.104";
+        user = "root";
+      };
+      clematis = {
+        hostname = "157.173.212.148";
+        user = "root";
+      };
       guoba = {
         hostname = "95.179.225.104";
         user = "root";

@@ -5,55 +5,64 @@
 }:
 {
   home.packages = with pkgs; [
-    inputs.comic-code-ligatures-nerd-font.packages.x86_64-linux.comic-code-ligatures-nerd-font
-    devenv
+    # Programs
+    jetbrains.idea-ultimate
+    krita
+    libreoffice-qt
+    miru
+    obs-studio
+    openvpn
+    pavucontrol
+    pcmanfm
+    protonvpn-gui
+    veracrypt
     vesktop
-    xdg-utils
+    xournalpp
+
+    # Fonts
+    inputs.comic-code-ligatures-nerd-font.packages.x86_64-linux.comic-code-ligatures-nerd-font
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-emoji
-    zip
-    unzip
-    protonvpn-gui
-    pavucontrol
-    neofetch
-    ripgrep
-    fd
-    nixfmt-rfc-style
+
+    # LSP
+    dockerfile-language-server-nodejs
+    jq
     nixd
-    vimPlugins.nvim-treesitter.withAllGrammars
-    update-nix-fetchgit
-    krita
-    xclip
+    nixfmt-rfc-style
     prettierd
+    yaml-language-server
+
+    # Util
+    bottom
+    devenv
+    fd
+    feh
+    ffmpeg
+    gh
+    neofetch
+    ntfs3g
+    ripgrep
+    tokei
+    unrar
+    unzip
+    update-nix-fetchgit
+    wakatime-cli
+    wget
+    wl-clipboard
+    xclip
+    xdg-utils
+    zip
+
+    # Programming
     nodejs
     rustup
-    bottom
-    ffmpeg
-    ntfs3g
-    unrar
-    jq
-    tokei
-    libreoffice-qt
-    wakatime-cli
-    obs-studio
-    miru
-    dockerfile-language-server-nodejs
-    wl-clipboard
-    wget
-    xournalpp
+
+    # Custom
     (writeShellScriptBin "shot" ''
-      # ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" ~/Media/screenshots/screenshot.png
-      # ${grim}/bin/grim -g "$(${slurp}/bin/slurp)" "$HOME/Media/screenshots/screenshot_$(($(ls "$HOME/Media/screenshots" | grep -oP 'screenshot_\K[0-9]+' | sort -n | tail -1 || echo 0) + 1)).png"
       FILE="$HOME/Screenshots/screenshot_$(($(ls "$HOME/Screenshots" | grep -oP 'screenshot_\K[0-9]+' | sort -n | tail -1) + 1)).png" && ${grim}/bin/grim -g "$(${slurp}/bin/slurp)" "$FILE" && ${wl-clipboard}/bin/wl-copy < "$FILE"
     '')
-    feh
-    veracrypt
-    gh
-    scrcpy
-    pcmanfm
-    obsidian
-    (callPackage ./zoho.nix { })
     (callPackage ./proton-pass.nix { })
+    (callPackage ./zoho.nix { })
   ];
 }

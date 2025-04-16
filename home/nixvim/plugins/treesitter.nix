@@ -6,6 +6,7 @@ in
   programs.nixvim = {
     extraPackages = with pkgs; [
       gcc
+      vimPlugins.nvim-treesitter.withAllGrammars
     ];
   };
   programs.nixvim.plugins.lazy.plugins = with pkgs.vimPlugins; [
