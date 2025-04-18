@@ -19,51 +19,41 @@
   };
 
   outputs = inputs: {
-    nixosConfigurations = {
-      nix-laptop = inputs.nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          { networking.hostName = "nix-laptop"; }
-          ./hardware-configuration/laptop.nix
-          ./configuration
-          inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-            };
-            home-manager.users.julius = {
-              imports = [
-                ./home
-              ];
-            };
-          }
-        ];
+    nixosConfigurations =
+      let
+        nixosSystem =
+          laptop:
+          let
+            hostName = if laptop then "nix-laptop" else "nix-desktop";
+            hardwareConfiguration =
+              if laptop then ./hardware-configuration/laptop.nix else ./hardware-configuration/desktop.nix;
+          in
+          inputs.nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit inputs laptop; };
+            modules = [
+              { networking.hostName = hostName; }
+              hardwareConfiguration
+              ./configuration
+              inputs.home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = {
+                  inherit inputs;
+                };
+                home-manager.users.julius = {
+                  imports = [
+                    ./home
+                  ];
+                };
+              }
+            ];
+          };
+      in
+      {
+        nix-desktop = nixosSystem false;
+        nix-laptop = nixosSystem true;
       };
-      nix-desktop = inputs.nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          { networking.hostName = "nix-desktop"; }
-          ./hardware-configuration/desktop.nix
-          ./configuration
-          inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-            };
-            home-manager.users.julius = {
-              imports = [
-                ./home
-              ];
-            };
-          }
-        ];
-      };
-    };
   };
 }
