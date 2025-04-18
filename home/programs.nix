@@ -32,42 +32,22 @@
     enable = true;
     profiles.default = {
 
-      extensions =
-        with pkgs.vscode-extensions;
-        [
-          pkief.material-icon-theme
-          esbenp.prettier-vscode
-          wakatime.vscode-wakatime
-          svelte.svelte-vscode
-          bradlc.vscode-tailwindcss
-          ritwickdey.liveserver
-          rust-lang.rust-analyzer
-          fill-labs.dependi
-          tamasfe.even-better-toml
-        ]
-        ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-          {
-            name = "argus";
-            publisher = "gavinleroy";
-            version = "0.1.13";
-            sha256 = "MmGSNMfCtbQzR31Ji9kXHxe8ZUV97zZ0zbyJAcjOxuc=";
-          }
-          {
-            name = "vs-code-extension";
-            publisher = "inlang";
-            version = "1.48.3";
-            sha256 = "4/Jday2YcP5yVq5OE4xZXY5Go8/oyTPhJphS423pEUA=";
-          }
-        ];
+      extensions = with pkgs.vscode-extensions; [
+        pkief.material-icon-theme
+        esbenp.prettier-vscode
+        wakatime.vscode-wakatime
+        svelte.svelte-vscode
+        bradlc.vscode-tailwindcss
+        ritwickdey.liveserver
+        fill-labs.dependi
+      ];
       userSettings = {
         "workbench.iconTheme" = "material-icon-theme";
         "workbench.colorTheme" = "Catppuccin Macchiato";
         "editor.fontFamily" = "ComicCodeLigatures Nerd Font";
         "editor.mouseWheelZoom" = true;
-        "rust-analyzer.check.command" = "clippy";
         "svelte.enable-ts-plugin" = true;
         "editor.formatOnSave" = true;
-        "sherlock.userId" = "cc054ca2-0d34-4562-b3d3-b738b514b241";
         "[json]" = {
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
