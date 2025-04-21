@@ -92,8 +92,12 @@
         hostname = "95.179.225.104";
         user = "root";
       };
-      allianz-arena = {
+      loesch = {
         hostname = "94.16.117.113";
+        user = "root";
+      };
+      volkan = {
+        hostname = "202.61.196.85";
         user = "root";
       };
     };
