@@ -1,11 +1,12 @@
 {
   pkgs,
   inputs,
+  laptop,
   ...
 }:
 {
   imports = [
-    ./nvidia.nix
+    (if laptop then ./graphics/laptop.nix else ./graphics/desktop.nix)
     ./services.nix
     ./programs.nix
     inputs.catppuccin.nixosModules.catppuccin
