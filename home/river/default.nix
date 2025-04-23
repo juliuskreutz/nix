@@ -57,7 +57,6 @@
         "rivertile"
         "\"${pkgs.swaybg}/bin/swaybg -i ${../../wallpaper.png} -m fill\""
         "waybar"
-        "protonvpn-app"
       ];
     };
   };

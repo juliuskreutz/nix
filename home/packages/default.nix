@@ -46,7 +46,6 @@
     tokei
     unrar
     unzip
-    update-nix-fetchgit
     wakatime-cli
     wget
     wl-clipboard

@@ -24,9 +24,7 @@
     enable = true;
     scdaemonSettings.disable-ccid = true;
   };
-  programs.chromium = {
-    enable = true;
-  };
+  programs.chromium.enable = true;
   programs.bat.enable = true;
   programs.vscode = {
     enable = true;
@@ -110,11 +108,7 @@
       key = "EBE7 5BC0 5820 6BC9 F440  895F F7D6 E464 4ACD 05A4";
       signByDefault = true;
     };
-    extraConfig = {
-      push = {
-        autoSetupRemote = true;
-      };
-    };
+    extraConfig.push.autoSetupRemote = true;
   };
   programs.zsh = {
     enable = true;
@@ -130,7 +124,7 @@
         src = pkgs.fetchFromGitHub {
           owner = "sindresorhus";
           repo = "pure";
-          rev = "92b8e9057988566b37ff695e70e2e9bbeb7196c8";
+          rev = "v1.23.0";
           sha256 = "1q6pxa1lq21f9956v1684bgkfrkdfx4jy9n8gvffp0672agapcsd";
         };
       }
@@ -139,7 +133,7 @@
         src = pkgs.fetchFromGitHub {
           owner = "Aloxaf";
           repo = "fzf-tab";
-          rev = "6aced3f35def61c5edf9d790e945e8bb4fe7b305";
+          rev = "v1.2.0";
           sha256 = "1brljd9744wg8p9v3q39kdys33jb03d27pd0apbg1cz0a2r1wqqi";
         };
       }

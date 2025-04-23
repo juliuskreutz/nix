@@ -12,13 +12,6 @@
   };
 
   virtualisation = {
-    docker = {
-      enable = true;
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
-    };
     podman = {
       enable = true;
     };
@@ -34,26 +27,15 @@
     wayland.enable = true;
     package = pkgs.kdePackages.sddm;
   };
-  services.xserver = {
-    xkb.layout = "de";
-  };
+  services.xserver.xkb.layout = "de";
+
   services.pcscd.enable = true;
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql_17;
-    ensureUsers = [
-      {
-        name = "julius";
-        ensureClauses.superuser = true;
-        ensureClauses.login = true;
-      }
-    ];
-    authentication = ''
-      host all all 0.0.0.0/0 trust
-    '';
-  };
+
   services.blueman.enable = true;
+
+  # Important
   services.dbus.packages = [ pkgs.gcr ];
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
