@@ -61,6 +61,7 @@
   security.rtkit.enable = true;
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowBroken = true;
 
   system.stateVersion = "24.11";
 }

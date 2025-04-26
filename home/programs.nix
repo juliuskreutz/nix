@@ -38,6 +38,7 @@
         bradlc.vscode-tailwindcss
         ritwickdey.liveserver
         fill-labs.dependi
+        james-yu.latex-workshop
       ];
       userSettings = {
         "workbench.iconTheme" = "material-icon-theme";
@@ -64,6 +65,7 @@
         "[svelte]" = {
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
+        "latex-workshop.formatting.latex" = "latexindent";
       };
     };
   };
@@ -138,7 +140,7 @@
         };
       }
     ];
-    initExtra =
+    initContent =
       # bash
       ''
         bindkey -v '^?' backward-delete-char

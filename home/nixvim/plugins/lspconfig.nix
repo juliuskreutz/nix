@@ -45,24 +45,13 @@
           pyright = config.lib.nixvim.emptyTable;
           ruff = config.lib.nixvim.emptyTable;
           zls = config.lib.nixvim.emptyTable;
-          bottom = config.lib.nixvim.emptyTable;
-          dockerls = config.lib.nixvim.emptyTable;
+          clangd = config.lib.nixvim.emptyTable;
         };
       };
       config =
         # lua
         ''
           function(_, opts)
-            for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
-                local default_diagnostic_handler = vim.lsp.handlers[method]
-                vim.lsp.handlers[method] = function(err, result, context, config)
-                    if err ~= nil and err.code == -32802 then
-                        return
-                    end
-                    return default_diagnostic_handler(err, result, context, config)
-                end
-            end
-
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             local on_attach = function(client, bufnr)
@@ -85,38 +74,20 @@
             local lspconfig = require("lspconfig")
             local configs = require("lspconfig.configs")
 
-            configs.bottom = {
-                default_config = {
-                    cmd = {"/home/julius/Projects/rust/bottom/target/release/bottom", "lsp"},
-                    root_dir = lspconfig.util.root_pattern(".git"),
-                    filetypes = {"bottom"},
-                },
-            }
-
             for name, server in pairs(opts.servers) do
-                if (name == "rust_analyzer")
-                then
-                  server.capabilities = require("cmp_nvim_lsp").default_capabilities({
-                    resolveSupport = {
-                      properties = {
-                        "documentation",
-                        "detail",
-                        "additionalTextEdits",
-                        "sortText",
-                        "filterText",
-                        "insertText",
-                        "insertTextFormat",
-                        "insertTextMode"
-                      }
-                    }
-                  })
-                else
-                  server.capabilities = capabilities
-                end
+                server.capabilities = capabilities
 
                 server.on_attach = on_attach
                 lspconfig[name].setup(server)
             end
+
+            lspconfig.opts = {
+              servers = {
+                clangd = {
+                  mason = false,
+                },
+              },
+            }
 
             local cmp = require("cmp")
             local config = cmp.get_config()

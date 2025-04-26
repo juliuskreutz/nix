@@ -27,8 +27,5 @@
 
       showbreak = "↳ ";
     };
-    filetype.extension = {
-      btm = "bottom";
-    };
   };
 }
