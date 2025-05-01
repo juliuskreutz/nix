@@ -39,6 +39,7 @@
         ritwickdey.liveserver
         fill-labs.dependi
         james-yu.latex-workshop
+        asvetliakov.vscode-neovim
       ];
       userSettings = {
         "workbench.iconTheme" = "material-icon-theme";
@@ -66,6 +67,9 @@
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
         "latex-workshop.formatting.latex" = "latexindent";
+        "extensions.experimental.affinity" = {
+          "asvetliakov.vscode-neovim" = 1;
+        };
       };
     };
   };

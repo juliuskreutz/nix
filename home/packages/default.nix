@@ -14,6 +14,7 @@
     openvpn
     pavucontrol
     pcmanfm
+    proton-pass
     protonvpn-gui
     veracrypt
     vesktop
@@ -29,7 +30,7 @@
     dockerfile-language-server-nodejs
     jq
     nixd
-    nixfmt-rfc-style
+    nixfmt-tree
     prettierd
     yaml-language-server
 
@@ -61,7 +62,6 @@
     (writeShellScriptBin "shot" ''
       FILE="$HOME/Screenshots/screenshot_$(($(ls "$HOME/Screenshots" | grep -oP 'screenshot_\K[0-9]+' | sort -n | tail -1) + 1)).png" && ${grim}/bin/grim -g "$(${slurp}/bin/slurp)" "$FILE" && ${wl-clipboard}/bin/wl-copy < "$FILE"
     '')
-    (callPackage ./proton-pass.nix { })
     (callPackage ./zoho.nix { })
   ];
 }
