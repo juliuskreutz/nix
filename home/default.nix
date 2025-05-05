@@ -13,6 +13,10 @@
     inputs.catppuccin.homeModules.catppuccin
   ];
 
+  # FIXME: TEMP
+  catppuccin.mako.enable = false;
+  # FIXME: TEMP
+
   programs.home-manager.enable = true;
   home.stateVersion = "24.11";
 

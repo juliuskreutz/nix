@@ -30,7 +30,7 @@
     dockerfile-language-server-nodejs
     jq
     nixd
-    nixfmt-tree
+    nixfmt-rfc-style
     prettierd
     yaml-language-server
 

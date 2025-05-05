@@ -9,7 +9,7 @@
       ];
       opts = {
         formatters_by_ft = {
-          nix = [ "treefmt" ];
+          nix = [ "nixfmt" ];
           json = [ "jq" ];
           markdown = [ "prettierd" ];
           css = [ "prettierd" ];
@@ -17,13 +17,6 @@
         };
         format_on_save = {
           lsp_fallback = true;
-        };
-        formatters.treefmt = {
-          command = "treefmt";
-          args = [
-            "--stdin"
-            "$FILENAME"
-          ];
         };
       };
     }

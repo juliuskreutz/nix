@@ -46,6 +46,7 @@
           ruff = config.lib.nixvim.emptyTable;
           zls = config.lib.nixvim.emptyTable;
           clangd = config.lib.nixvim.emptyTable;
+          hls = config.lib.nixvim.emptyTable;
         };
       };
       config =
