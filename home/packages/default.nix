@@ -59,9 +59,6 @@
     rustup
 
     # Custom
-    (writeShellScriptBin "shot" ''
-      FILE="$HOME/Screenshots/screenshot_$(($(ls "$HOME/Screenshots" | grep -oP 'screenshot_\K[0-9]+' | sort -n | tail -1) + 1)).png" && ${grim}/bin/grim -g "$(${slurp}/bin/slurp)" "$FILE" && ${wl-clipboard}/bin/wl-copy < "$FILE"
-    '')
     (callPackage ./zoho.nix { })
   ];
 }

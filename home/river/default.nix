@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  config,
+  ...
+}:
 {
   imports = [
     ./waybar.nix
@@ -20,7 +24,7 @@
           "Super+Shift Return" = "spawn ${pkgs.ghostty}/bin/ghostty";
           "Super E" = "spawn ${pkgs.chromium}/bin/chromium";
           "Super P" = "spawn ${pkgs.fuzzel}/bin/fuzzel";
-          "Super S" = "spawn shot";
+          "Super S" = "spawn \"${config.services.flameshot.package}/bin/flameshot gui\"";
           # Super+[1-9] to focus tag [0-8]
           "Super 1" = "set-focused-tags 1";
           "Super 2" = "set-focused-tags 2";
@@ -54,9 +58,9 @@
       default-layout = "rivertile";
       focus-follows-cursor = "always";
       spawn = [
-        "rivertile"
+        "${pkgs.river}/bin/rivertile"
         "\"${pkgs.swaybg}/bin/swaybg -i ${../../wallpaper.png} -m fill\""
-        "waybar"
+        "${pkgs.waybar}/bin/waybar"
       ];
     };
   };
