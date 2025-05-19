@@ -5,6 +5,8 @@
 }:
 {
   home.packages = with pkgs; [
+    brightnessctl
+
     # Programs
     jetbrains.idea-ultimate
     krita

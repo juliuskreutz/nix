@@ -24,7 +24,7 @@
           "Super+Shift Return" = "spawn ${pkgs.ghostty}/bin/ghostty";
           "Super E" = "spawn ${pkgs.chromium}/bin/chromium";
           "Super P" = "spawn ${pkgs.fuzzel}/bin/fuzzel";
-          "Super S" = "spawn \"${config.services.flameshot.package}/bin/flameshot gui\"";
+          "Super S" = ''spawn "${config.services.flameshot.package}/bin/flameshot gui"'';
           # Super+[1-9] to focus tag [0-8]
           "Super 1" = "set-focused-tags 1";
           "Super 2" = "set-focused-tags 2";
@@ -45,6 +45,9 @@
           "Super+Shift 7" = "set-view-tags 64";
           "Super+Shift 8" = "set-view-tags 128";
           "Super+Shift 9" = "set-view-tags 256";
+          # Brightness
+          "None XF86MonBrightnessUp" = ''spawn "${pkgs.brightnessctl}/bin/brightnessctl set +10%"'';
+          "None XF86MonBrightnessDown" = ''spawn "${pkgs.brightnessctl}/bin/brightnessctl set 10%-"'';
         };
       };
       map-pointer = {
