@@ -58,7 +58,6 @@
 
     # Programming
     nodejs
-    rustup
 
     # Custom
     (callPackage ./zoho.nix { })

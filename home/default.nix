@@ -5,12 +5,12 @@
 }:
 {
   imports = [
-    ./nixvim
+    inputs.catppuccin.homeModules.catppuccin
+    inputs.nixvim.homeManagerModules.nixvim
     ./river
     ./packages
     ./programs.nix
     ./services.nix
-    inputs.catppuccin.homeModules.catppuccin
   ];
 
   programs.home-manager.enable = true;
