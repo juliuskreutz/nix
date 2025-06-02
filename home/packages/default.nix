@@ -21,6 +21,7 @@
     veracrypt
     vesktop
     xournalpp
+    signal-desktop
 
     # Fonts
     inputs.comic-code-ligatures-nerd-font.packages.x86_64-linux.comic-code-ligatures-nerd-font
