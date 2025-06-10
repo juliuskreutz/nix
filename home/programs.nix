@@ -64,7 +64,7 @@
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
         "[svelte]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          "editor.defaultFormatter" = "svelte.svelte-vscode";
         };
         "latex-workshop.formatting.latex" = "latexindent";
         "extensions.experimental.affinity" = {
