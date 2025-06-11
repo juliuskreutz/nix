@@ -5,11 +5,11 @@
 }:
 appimageTools.wrapType2 rec {
   pname = "zoho-mail-desktop";
-  version = "1.6.5";
+  version = "1.6.6";
 
   src = fetchurl {
     url = "https://downloads.zohocdn.com/zmail-desktop/linux/${pname}-lite-x64-v${version}.AppImage";
-    hash = "sha256-TiPf5tQnVjPpzteSxIa4RLEyYBx6ohnnxPTAG0JjnrM=";
+    hash = "sha256-Pd9q16TNBj1Ohm22eTDS7kxZLKTl72mjflm845qrdXI=";
   };
 
   extracted = appimageTools.extract { inherit pname version src; };

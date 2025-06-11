@@ -33,9 +33,10 @@
 
   services.blueman.enable = true;
 
-  # Important
+  # Important for gpg
   services.dbus.packages = [ pkgs.gcr ];
 
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;

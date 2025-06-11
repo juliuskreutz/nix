@@ -5,8 +5,6 @@
 }:
 {
   home.packages = with pkgs; [
-    brightnessctl
-
     # Programs
     jetbrains.idea-ultimate
     krita
@@ -38,6 +36,7 @@
     yaml-language-server
 
     # Util
+    brightnessctl
     bottom
     devenv
     fd

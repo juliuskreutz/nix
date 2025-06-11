@@ -12,11 +12,6 @@
     inputs.catppuccin.nixosModules.catppuccin
   ];
 
-  boot.kernel.sysctl = {
-    "kernel.perf_event_paranoid" = "1";
-    "kernel.kptr_restrict" = "0";
-  };
-
   catppuccin = {
     enable = true;
     flavor = "macchiato";
@@ -62,8 +57,6 @@
     shell = pkgs.zsh;
   };
   security.sudo.wheelNeedsPassword = false;
-  # Important
-  security.rtkit.enable = true;
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowBroken = true;
