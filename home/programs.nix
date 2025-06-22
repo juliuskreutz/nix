@@ -65,6 +65,7 @@
         "[svelte]" = {
           "editor.defaultFormatter" = "svelte.svelte-vscode";
         };
+        "latex-workshop.formatting.latex" = "latexindent";
         "extensions.experimental.affinity" = {
           "asvetliakov.vscode-neovim" = 1;
         };
