@@ -45,6 +45,8 @@
           "Super+Shift 7" = "set-view-tags 64";
           "Super+Shift 8" = "set-view-tags 128";
           "Super+Shift 9" = "set-view-tags 256";
+          # Send to next monitor
+          "Super+Shift Period" = "send-to-output next";
           # Brightness
           "None XF86MonBrightnessUp" = ''spawn "${pkgs.brightnessctl}/bin/brightnessctl set +10%"'';
           "None XF86MonBrightnessDown" = ''spawn "${pkgs.brightnessctl}/bin/brightnessctl set 10%-"'';
