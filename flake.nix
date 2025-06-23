@@ -43,11 +43,7 @@
                   extraSpecialArgs = {
                     inherit inputs;
                   };
-                  users.julius = {
-                    imports = [
-                      ./home
-                    ];
-                  };
+                  users.julius = ./home;
                 };
               }
             ];

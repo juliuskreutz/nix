@@ -66,6 +66,7 @@
           "editor.defaultFormatter" = "svelte.svelte-vscode";
         };
         "latex-workshop.formatting.latex" = "latexindent";
+        "latex-workshop.latex.build.forceRecipeUsage" = false;
         "extensions.experimental.affinity" = {
           "asvetliakov.vscode-neovim" = 1;
         };
