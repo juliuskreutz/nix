@@ -152,7 +152,6 @@
         zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always --icons $realpath'
       '';
   };
-
   programs.ghostty = {
     enable = true;
     clearDefaultKeybinds = true;
