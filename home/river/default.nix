@@ -61,7 +61,7 @@
       keyboard-layout = "de";
       set-repeat = "30 250";
       default-layout = "rivertile";
-      focus-follows-cursor = "always";
+      focus-follows-cursor = "normal";
       spawn = [
         "${pkgs.river}/bin/rivertile"
         "\"${pkgs.swaybg}/bin/swaybg -i ${../../wallpaper.png} -m fill\""
