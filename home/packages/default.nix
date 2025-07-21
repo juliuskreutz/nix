@@ -6,14 +6,15 @@
 {
   home.packages = with pkgs; [
     # Programs
-    jetbrains.idea-ultimate
+    (jetbrains.idea-ultimate.override {
+      inherit jdk;
+    })
     krita
     libreoffice-qt
     miru
     obs-studio
     openvpn
     pavucontrol
-    pcmanfm
     proton-pass
     protonvpn-gui
     veracrypt
