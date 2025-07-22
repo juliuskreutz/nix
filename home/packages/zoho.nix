@@ -5,20 +5,25 @@
 }:
 appimageTools.wrapType2 rec {
   pname = "zoho-mail-desktop";
-  version = "1.6.6";
+  version = "1.6.7";
 
   src = fetchurl {
     url = "https://downloads.zohocdn.com/zmail-desktop/linux/${pname}-lite-x64-v${version}.AppImage";
-    hash = "sha256-Pd9q16TNBj1Ohm22eTDS7kxZLKTl72mjflm845qrdXI=";
+    hash = "sha256-BesPuEMNpHZffAt+96CcEGH6Bj/OpIOH5PyviGYfW2w=";
   };
 
   extracted = appimageTools.extract { inherit pname version src; };
 
   extraInstallCommands = ''
-    install -m 444 -D ${extracted}/${pname}.desktop -t $out/share/applications
+    mkdir -p $out/share/applications
+    mkdir -p $out/share/lib/${pname}
+
+    cp -r ${extracted}/usr/* $out/
+    cp -r ${extracted}/{locales,resources} $out/share/lib/${pname}/
+
+    cp ${extracted}/${pname}.desktop $out/share/applications/
     substituteInPlace $out/share/applications/${pname}.desktop \
       --replace-fail 'Exec=AppRun' 'Exec=${pname}'
-    cp -r ${extracted}/usr/share/icons $out/share
   '';
 
   meta = {
