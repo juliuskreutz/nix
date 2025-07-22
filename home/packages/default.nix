@@ -11,7 +11,6 @@
     })
     krita
     libreoffice-qt
-    miru
     obs-studio
     openvpn
     pavucontrol
@@ -62,5 +61,6 @@
 
     # Custom
     (callPackage ./zoho.nix { })
+    (callPackage ./hayase.nix { })
   ];
 }
