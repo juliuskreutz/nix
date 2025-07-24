@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-pr419026.url = "github:NixOS/nixpkgs/pull/419026/head";
+    nixpkgs-pr426285.url = "github:NixOS/nixpkgs/pull/426285/head";
     catppuccin.url = "github:catppuccin/nix";
     nixvim = {
       url = "github:juliuskreutz/nixvim";
