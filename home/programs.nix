@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{
+  lib,
+  pkgs,
+  ...
+}:
 {
   programs.direnv.enable = true;
   programs.fzf = {
@@ -41,7 +45,7 @@
         asvetliakov.vscode-neovim
       ];
       userSettings = {
-        "workbench.iconTheme" = "material-icon-theme";
+        "workbench.iconTheme" = lib.mkForce "material-icon-theme";
         "workbench.colorTheme" = "Catppuccin Macchiato";
         "editor.fontFamily" = "ComicCodeLigatures Nerd Font";
         "editor.mouseWheelZoom" = true;

@@ -19,7 +19,7 @@
 
   catppuccin.sddm.background = ../wallpaper.png;
   catppuccin.sddm.loginBackground = false;
-  # catppuccin.sddm.enable = false;
+  catppuccin.sddm.accent = "blue";
 
   services.displayManager.sessionPackages = [ pkgs.river ];
   services.displayManager.sddm = {

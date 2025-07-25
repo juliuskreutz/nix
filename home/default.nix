@@ -29,7 +29,6 @@
     theme = {
       name = "catppuccin-macchiato-blue-compact";
       package = pkgs.catppuccin-gtk.override {
-        accents = [ "blue" ];
         variant = "macchiato";
         size = "compact";
       };
