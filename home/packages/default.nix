@@ -9,7 +9,6 @@
     jetbrains.idea-ultimate
     krita
     libreoffice-qt
-    obs-studio
     openvpn
     pavucontrol
     proton-pass
