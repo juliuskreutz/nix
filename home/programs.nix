@@ -43,6 +43,7 @@
         fill-labs.dependi
         james-yu.latex-workshop
         asvetliakov.vscode-neovim
+        ms-vscode.hexeditor
       ];
       userSettings = {
         "workbench.iconTheme" = lib.mkForce "material-icon-theme";
