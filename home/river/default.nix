@@ -63,7 +63,7 @@
       default-layout = "rivertile";
       focus-follows-cursor = "normal";
       spawn = [
-        "${pkgs.river}/bin/rivertile"
+        "${pkgs.river-classic}/bin/rivertile"
         "\"${pkgs.swaybg}/bin/swaybg -i ${../../wallpaper.png} -m fill\""
         "${pkgs.waybar}/bin/waybar"
       ];

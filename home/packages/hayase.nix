@@ -5,11 +5,11 @@
 }:
 appimageTools.wrapType2 rec {
   pname = "hayase";
-  version = "6.4.22";
+  version = "6.4.31";
 
   src = fetchurl {
     url = "https://github.com/hayase-app/ui/releases/download/v${version}/linux-hayase-${version}-linux.AppImage";
-    hash = "sha256-xULsT4M03yPjbpqWCH4BEEpjIP6yl8b054clCCaQY6s=";
+    hash = "sha256-GBsknXGcufdBQmXSCudb0EZHdvCKCpcOaLU+nap4Y/8=";
   };
 
   extracted = appimageTools.extractType2 { inherit pname version src; };

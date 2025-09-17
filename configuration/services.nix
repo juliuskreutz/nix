@@ -21,7 +21,7 @@
   catppuccin.sddm.loginBackground = false;
   catppuccin.sddm.accent = "blue";
 
-  services.displayManager.sessionPackages = [ pkgs.river ];
+  services.displayManager.sessionPackages = [ pkgs.river-classic ];
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;

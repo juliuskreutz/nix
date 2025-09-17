@@ -6,7 +6,7 @@
 {
   imports = [
     inputs.catppuccin.homeModules.catppuccin
-    inputs.nixvim.homeModules.nixvim
+    ./nixvim
     ./river
     ./packages
     ./jdks.nix

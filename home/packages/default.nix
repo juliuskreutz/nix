@@ -25,7 +25,7 @@
     noto-fonts-emoji
 
     # LSP
-    dockerfile-language-server-nodejs
+    dockerfile-language-server
     jq
     nixd
     nixfmt-rfc-style

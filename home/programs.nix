@@ -81,6 +81,7 @@
   };
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
     matchBlocks = {
       kreutz-fun = {
         hostname = "5.252.227.206";
