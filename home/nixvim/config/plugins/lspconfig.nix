@@ -70,23 +70,13 @@
           	  end
             end
 
-            local lspconfig = require("lspconfig")
-            local configs = require("lspconfig.configs")
+            for name, config in pairs(opts.servers) do
+                config.capabilities = capabilities
+                config.on_attach = on_attach
 
-            for name, server in pairs(opts.servers) do
-                server.capabilities = capabilities
-
-                server.on_attach = on_attach
-                lspconfig[name].setup(server)
+                vim.lsp.config(name, config)
+                vim.lsp.enable(name)
             end
-
-            lspconfig.opts = {
-              servers = {
-                clangd = {
-                  mason = false,
-                },
-              },
-            }
 
             local cmp = require("cmp")
             local config = cmp.get_config()

@@ -35,47 +35,21 @@
     profiles.default = {
       extensions = with pkgs.vscode-extensions; [
         pkief.material-icon-theme
-        esbenp.prettier-vscode
         wakatime.vscode-wakatime
-        svelte.svelte-vscode
         bradlc.vscode-tailwindcss
-        ritwickdey.liveserver
         fill-labs.dependi
         james-yu.latex-workshop
-        asvetliakov.vscode-neovim
-        ms-vscode.hexeditor
+        biomejs.biome
       ];
       userSettings = {
         "workbench.iconTheme" = lib.mkForce "material-icon-theme";
         "workbench.colorTheme" = "Catppuccin Macchiato";
         "editor.fontFamily" = "ComicCodeLigatures Nerd Font";
         "editor.mouseWheelZoom" = true;
-        "svelte.enable-ts-plugin" = true;
         "editor.formatOnSave" = true;
-        "[json]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "[html]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "[css]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "[javascript]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "[typescript]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "[svelte]" = {
-          "editor.defaultFormatter" = "svelte.svelte-vscode";
-        };
         "latex-workshop.formatting.latex" = "latexindent";
         "latex-workshop.latex.build.forceRecipeUsage" = false;
-        "extensions.experimental.affinity" = {
-          "asvetliakov.vscode-neovim" = 1;
-        };
-        "prettier.tabWidth" = 4;
+        "terminal.integrated.stickyScroll.enabled" = false;
       };
     };
   };
@@ -115,6 +89,7 @@
   };
   programs.git = {
     enable = true;
+    lfs.enable = true;
     userEmail = "julius@kreutz.dev";
     userName = "Julius Kreutz";
     signing = {

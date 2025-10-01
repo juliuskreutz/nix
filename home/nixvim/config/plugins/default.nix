@@ -7,6 +7,7 @@
     ./copilot.nix
     ./crates.nix
     ./fidget.nix
+    ./git-blame.nix
     ./gitsigns.nix
     ./indent-blankline.nix
     ./lspconfig.nix
