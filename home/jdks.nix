@@ -3,6 +3,5 @@
   ...
 }:
 {
-  home.file.".jdks/jdk23".source = (pkgs.jdk23.override { enableJavaFX = true; });
-  home.file.".jdks/jdk24".source = pkgs.jdk24;
+  home.file.".jdks/jdk25".source = pkgs.jdk25;
 }

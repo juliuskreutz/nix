@@ -33,14 +33,24 @@
   programs.vscode = {
     enable = true;
     profiles.default = {
-      extensions = with pkgs.vscode-extensions; [
-        pkief.material-icon-theme
-        wakatime.vscode-wakatime
-        bradlc.vscode-tailwindcss
-        fill-labs.dependi
-        james-yu.latex-workshop
-        biomejs.biome
-      ];
+      extensions =
+        with pkgs.vscode-extensions;
+        [
+          pkief.material-icon-theme
+          wakatime.vscode-wakatime
+          bradlc.vscode-tailwindcss
+          fill-labs.dependi
+          james-yu.latex-workshop
+          biomejs.biome
+        ]
+        ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+          {
+            name = "native-preview";
+            publisher = "TypeScriptTeam";
+            version = "0.20251001.1";
+            sha256 = "sha256-X3j8kr+/7CjecQo8QmLREUJrXP49ZIP0C+BC2kbsld0=";
+          }
+        ];
       userSettings = {
         "workbench.iconTheme" = lib.mkForce "material-icon-theme";
         "workbench.colorTheme" = "Catppuccin Macchiato";
@@ -50,6 +60,7 @@
         "latex-workshop.formatting.latex" = "latexindent";
         "latex-workshop.latex.build.forceRecipeUsage" = false;
         "terminal.integrated.stickyScroll.enabled" = false;
+        "typescript.experimental.useTsgo" = true;
       };
     };
   };
