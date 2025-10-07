@@ -11,12 +11,6 @@
     powerOnBoot = true;
   };
 
-  virtualisation = {
-    podman = {
-      enable = true;
-    };
-  };
-
   catppuccin.sddm.background = ../wallpaper.png;
   catppuccin.sddm.loginBackground = false;
   catppuccin.sddm.accent = "blue";

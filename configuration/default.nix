@@ -12,9 +12,6 @@
     inputs.catppuccin.nixosModules.catppuccin
   ];
 
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "julius" ];
-
   catppuccin = {
     enable = true;
     flavor = "macchiato";
