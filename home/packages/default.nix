@@ -52,6 +52,7 @@
     xclip
     xdg-utils
     zip
+    git-crypt
 
     # Programming
     nodejs
