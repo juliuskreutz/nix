@@ -55,6 +55,7 @@
         "workbench.iconTheme" = lib.mkForce "material-icon-theme";
         "workbench.colorTheme" = "Catppuccin Macchiato";
         "editor.fontFamily" = "ComicCodeLigatures Nerd Font";
+        "editor.fontLigatures" = true;
         "editor.mouseWheelZoom" = true;
         "editor.formatOnSave" = true;
         "latex-workshop.formatting.latex" = "latexindent";
