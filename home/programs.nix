@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  secrets,
   ...
 }:
 {
@@ -47,7 +48,7 @@
           {
             name = "native-preview";
             publisher = "TypeScriptTeam";
-            version = "0.20251001.1";
+            version = "0.20251022.1";
             sha256 = "sha256-X3j8kr+/7CjecQo8QmLREUJrXP49ZIP0C+BC2kbsld0=";
           }
         ];
@@ -55,6 +56,7 @@
         "workbench.iconTheme" = lib.mkForce "material-icon-theme";
         "workbench.colorTheme" = "Catppuccin Macchiato";
         "editor.fontFamily" = "ComicCodeLigatures Nerd Font";
+        "editor.fontLigatures" = true;
         "editor.mouseWheelZoom" = true;
         "editor.formatOnSave" = true;
         "latex-workshop.formatting.latex" = "latexindent";
@@ -67,47 +69,22 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = {
-      kreutz-fun = {
-        hostname = "5.252.227.206";
-        user = "root";
-      };
-      stardb = {
-        hostname = "94.103.188.220";
-        user = "root";
-      };
-      uncover = {
-        hostname = "213.232.235.104";
-        user = "root";
-      };
-      clematis = {
-        hostname = "157.173.212.148";
-        user = "root";
-      };
-      guoba = {
-        hostname = "95.179.225.104";
-        user = "root";
-      };
-      loesch = {
-        hostname = "94.16.117.113";
-        user = "root";
-      };
-      volkan = {
-        hostname = "202.61.196.85";
-        user = "root";
-      };
-    };
+    matchBlocks = secrets.ssh.matchBlocks;
   };
   programs.git = {
     enable = true;
     lfs.enable = true;
-    userEmail = "julius@kreutz.dev";
-    userName = "Julius Kreutz";
+    settings = {
+      user = {
+        email = "julius@kreutz.dev";
+        name = "Julius Kreutz";
+      };
+      push.autoSetupRemote = true;
+    };
     signing = {
       key = "EBE7 5BC0 5820 6BC9 F440  895F F7D6 E464 4ACD 05A4";
       signByDefault = true;
     };
-    extraConfig.push.autoSetupRemote = true;
   };
   programs.zsh = {
     enable = true;
@@ -153,6 +130,7 @@
       font-size = 14;
       gtk-titlebar = false;
       background-opacity = 0.8;
+      shell-integration-features = "ssh-terminfo";
       keybind = [
         "super+c=copy_to_clipboard"
         "super+v=paste_from_clipboard"

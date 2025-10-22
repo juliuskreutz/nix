@@ -9,7 +9,6 @@
     ./nixvim
     ./river
     ./packages
-    ./jdks.nix
     ./programs.nix
     ./services.nix
   ];
