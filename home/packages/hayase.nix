@@ -1,29 +1,46 @@
 {
   lib,
+  stdenvNoCC,
   appimageTools,
   fetchurl,
 }:
-appimageTools.wrapType2 rec {
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "hayase";
-  version = "6.4.32";
+  version = "6.4.36";
 
   src = fetchurl {
-    url = "https://github.com/hayase-app/ui/releases/download/v${version}/linux-hayase-${version}-linux.AppImage";
-    hash = "sha256-so6yVHIG1NONZ8AFEuGQqgJPOw266Pz8cBT+Afp+Tuo=";
+    url = "https://github.com/hayase-app/docs/releases/download/v${finalAttrs.version}/linux-hayase-${finalAttrs.version}-linux.AppImage";
+    hash = "sha256-IaqpJdRwQMHXJk1qbcOJof2tlZFGPUDoM/WG1PeyUiw=";
   };
 
-  extracted = appimageTools.extractType2 { inherit pname version src; };
+  wrapped = appimageTools.wrapType2 { inherit (finalAttrs) pname version src; };
+  extracted = appimageTools.extractType2 { inherit (finalAttrs) pname version src; };
 
-  extraInstallCommands = ''
+  buildInputs = [
+    finalAttrs.wrapped
+  ];
+
+  dontUnpack = true;
+  dontBuild = true;
+
+  installPhase = ''
+    runHook preInstall
+
+    mkdir -p $out/bin
+
+    ln -s ${finalAttrs.wrapped}/bin/hayase $out/bin/hayase
+
     mkdir -p $out/share/applications
-    mkdir -p $out/share/lib/${pname}
+    mkdir -p $out/share/lib/hayase
 
-    cp -r ${extracted}/usr/* $out/
-    cp -r ${extracted}/{locales,resources} $out/share/lib/${pname}/
+    cp -r ${finalAttrs.extracted}/usr/* $out/
+    cp -r ${finalAttrs.extracted}/{locales,resources} $out/share/lib/hayase/
 
-    cp ${extracted}/${pname}.desktop $out/share/applications/
-    substituteInPlace $out/share/applications/${pname}.desktop \
-      --replace-fail 'Exec=AppRun' 'Exec=${pname}'
+    cp ${finalAttrs.extracted}/hayase.desktop $out/share/applications/
+    substituteInPlace $out/share/applications/hayase.desktop \
+      --replace-fail 'Exec=AppRun' 'Exec=hayase'
+
+    runHook postInstall
   '';
 
   meta = {
@@ -35,4 +52,4 @@ appimageTools.wrapType2 rec {
     sourceProvenance = [ lib.sourceTypes.binaryNativeCode ];
     mainProgram = "hayase";
   };
-}
+})

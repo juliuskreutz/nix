@@ -27,6 +27,7 @@
             hostName = if laptop then "nix-laptop" else "nix-desktop";
             hardwareConfiguration =
               if laptop then ./hardware-configuration/laptop.nix else ./hardware-configuration/desktop.nix;
+            secrets = import ./secrets.nix;
           in
           inputs.nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
@@ -41,7 +42,7 @@
                   useGlobalPkgs = true;
                   useUserPackages = true;
                   extraSpecialArgs = {
-                    inherit inputs;
+                    inherit inputs secrets;
                   };
                   users.julius = ./home;
                 };
