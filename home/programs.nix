@@ -49,7 +49,7 @@
             name = "native-preview";
             publisher = "TypeScriptTeam";
             version = "0.20251022.1";
-            sha256 = "sha256-X3j8kr+/7CjecQo8QmLREUJrXP49ZIP0C+BC2kbsld0=";
+            sha256 = "sha256-lA2yLEevOclFMZg7Tmbcv8hLSu60v/CkSMA9de43myA=";
           }
         ];
       userSettings = {
@@ -63,6 +63,7 @@
         "latex-workshop.latex.build.forceRecipeUsage" = false;
         "terminal.integrated.stickyScroll.enabled" = false;
         "typescript.experimental.useTsgo" = true;
+        "biome.suggestInstallingGlobally" = false;
       };
     };
   };
