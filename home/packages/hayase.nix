@@ -1,46 +1,28 @@
 {
   lib,
-  stdenvNoCC,
   appimageTools,
   fetchurl,
 }:
-stdenvNoCC.mkDerivation (finalAttrs: {
+let
   pname = "hayase";
   version = "6.4.36";
 
   src = fetchurl {
-    url = "https://github.com/hayase-app/docs/releases/download/v${finalAttrs.version}/linux-hayase-${finalAttrs.version}-linux.AppImage";
+    url = "https://github.com/hayase-app/docs/releases/download/v${version}/linux-hayase-${version}-linux.AppImage";
     hash = "sha256-IaqpJdRwQMHXJk1qbcOJof2tlZFGPUDoM/WG1PeyUiw=";
   };
 
-  wrapped = appimageTools.wrapType2 { inherit (finalAttrs) pname version src; };
-  extracted = appimageTools.extractType2 { inherit (finalAttrs) pname version src; };
+  extracted = appimageTools.extractType2 { inherit pname version src; };
+in
+appimageTools.wrapType2 {
+  inherit pname version src;
 
-  buildInputs = [
-    finalAttrs.wrapped
-  ];
-
-  dontUnpack = true;
-  dontBuild = true;
-
-  installPhase = ''
-    runHook preInstall
-
-    mkdir -p $out/bin
-
-    ln -s ${finalAttrs.wrapped}/bin/hayase $out/bin/hayase
-
+  extraInstallCommands = ''
     mkdir -p $out/share/applications
-    mkdir -p $out/share/lib/hayase
-
-    cp -r ${finalAttrs.extracted}/usr/* $out/
-    cp -r ${finalAttrs.extracted}/{locales,resources} $out/share/lib/hayase/
-
-    cp ${finalAttrs.extracted}/hayase.desktop $out/share/applications/
+    cp -r ${extracted}/usr/* $out/
+    cp ${extracted}/hayase.desktop $out/share/applications/
     substituteInPlace $out/share/applications/hayase.desktop \
       --replace-fail 'Exec=AppRun' 'Exec=hayase'
-
-    runHook postInstall
   '';
 
   meta = {
@@ -52,4 +34,4 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     sourceProvenance = [ lib.sourceTypes.binaryNativeCode ];
     mainProgram = "hayase";
   };
-})
+}
