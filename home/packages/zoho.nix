@@ -19,7 +19,7 @@ appimageTools.wrapType2 {
 
   extraInstallCommands = ''
     mkdir -p $out/share/applications
-    cp -r ${extracted}/usr/* $out/
+    cp -r ${extracted}/usr/share/icons $out/share/
     cp ${extracted}/zoho-mail-desktop.desktop $out/share/applications/
     substituteInPlace $out/share/applications/zoho-mail-desktop.desktop \
       --replace-fail 'Exec=AppRun' 'Exec=zoho-mail-desktop'

@@ -35,6 +35,12 @@
   };
 
   xdg.enable = true;
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "x-scheme-handler/mailto" = [ "zoho-mail-desktop.desktop" ];
+    };
+  };
 
   home.pointerCursor = {
     name = "catppuccin-macchiato-dark-cursors";

@@ -49,7 +49,7 @@
             name = "native-preview";
             publisher = "TypeScriptTeam";
             version = "0.20251024.1";
-            sha256 = "sha256-AIxuQgYsBj0TozeE50xT039hil+t4Bm0OpvZ1CpU6ro=";
+            sha256 = "sha256-BcHGvddKXkjZry+jSibGd8dvDoEkv4jxAIFqWF37Y+o=";
           }
         ];
       userSettings = {
