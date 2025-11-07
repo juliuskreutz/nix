@@ -101,8 +101,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "sindresorhus";
           repo = "pure";
-          rev = "v1.23.0";
-          sha256 = "1q6pxa1lq21f9956v1684bgkfrkdfx4jy9n8gvffp0672agapcsd";
+          rev = "v1.24.0";
+          sha256 = "sha256-LfrZUv0UMVyygPd1RAv2EIWEvds2n0iEG8G2q7h5izM=";
         };
       }
       {
@@ -131,7 +131,7 @@
       font-size = 14;
       gtk-titlebar = false;
       background-opacity = 0.8;
-      shell-integration-features = "ssh-terminfo";
+      shell-integration-features = "ssh-env";
       keybind = [
         "super+c=copy_to_clipboard"
         "super+v=paste_from_clipboard"
