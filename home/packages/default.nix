@@ -17,6 +17,7 @@
     vesktop
     xournalpp
     signal-desktop
+    element-desktop
 
     # Fonts
     inputs.comic-code-ligatures-nerd-font.packages.x86_64-linux.comic-code-ligatures-nerd-font
