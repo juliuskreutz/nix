@@ -18,6 +18,7 @@
     xournalpp
     signal-desktop
     element-desktop
+    zoho-mail-desktop
 
     # Fonts
     inputs.comic-code-ligatures-nerd-font.packages.x86_64-linux.comic-code-ligatures-nerd-font
@@ -59,7 +60,6 @@
     nodejs
 
     # Custom
-    (callPackage ./zoho.nix { })
     (callPackage ./hayase.nix { })
   ];
 }
