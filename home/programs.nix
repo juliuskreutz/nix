@@ -62,7 +62,6 @@
         "latex-workshop.formatting.latex" = "latexindent";
         "latex-workshop.latex.build.forceRecipeUsage" = false;
         "terminal.integrated.stickyScroll.enabled" = false;
-        "typescript.experimental.useTsgo" = true;
         "biome.suggestInstallingGlobally" = false;
       };
     };
