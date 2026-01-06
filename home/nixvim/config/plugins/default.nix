@@ -21,7 +21,7 @@
     ./telescope.nix
     ./theme.nix
     ./todo-comments.nix
-    ./treesitter.nix
+    # ./treesitter.nix
     ./trouble.nix
     ./undotree.nix
     ./wakatime.nix

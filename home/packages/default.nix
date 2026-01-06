@@ -6,7 +6,7 @@
 {
   home.packages = with pkgs; [
     # Programs
-    jetbrains.idea-ultimate
+    jetbrains.idea
     krita
     libreoffice-qt
     openvpn

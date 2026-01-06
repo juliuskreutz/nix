@@ -5,11 +5,11 @@
 }:
 let
   pname = "hayase";
-  version = "6.4.39";
+  version = "6.4.46";
 
   src = fetchurl {
-    url = "https://github.com/hayase-app/docs/releases/download/v${version}/linux-hayase-${version}-linux.AppImage";
-    hash = "sha256-fRMbeiAGBjyhN/QpGvwxp3GGjRcz6YHx6McKGckfmYM=";
+    url = "https://api.hayase.watch/files/linux-hayase-${version}-linux.AppImage";
+    hash = "sha256-QvuxWtkcZbC94e7BcpTnFrhEZNItLJQQqUFODzJ83HA=";
   };
 
   extracted = appimageTools.extractType2 { inherit pname version src; };
@@ -22,7 +22,7 @@ appimageTools.wrapType2 {
     cp -r ${extracted}/usr/share/icons $out/share/
     cp ${extracted}/hayase.desktop $out/share/applications/
     substituteInPlace $out/share/applications/hayase.desktop \
-      --replace-fail 'Exec=AppRun' 'Exec=hayase'
+      --replace-fail 'Exec=AppRun' 'Exec=hayase --ozone-platform=x11'
   '';
 
   meta = {
