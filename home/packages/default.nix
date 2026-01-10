@@ -30,7 +30,7 @@
     dockerfile-language-server
     jq
     nixd
-    nixfmt-rfc-style
+    nixfmt
     prettierd
     yaml-language-server
 
