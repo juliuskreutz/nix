@@ -2,14 +2,15 @@
   lib,
   appimageTools,
   fetchurl,
+  forceX11 ? false,
 }:
 let
   pname = "hayase";
-  version = "6.4.46";
+  version = "6.4.48";
 
   src = fetchurl {
     url = "https://api.hayase.watch/files/linux-hayase-${version}-linux.AppImage";
-    hash = "sha256-QvuxWtkcZbC94e7BcpTnFrhEZNItLJQQqUFODzJ83HA=";
+    hash = "sha256-lWMzSd6Koel0on82FuqOQJcmhImorPN+/aKtOHHf8oM=";
   };
 
   extracted = appimageTools.extractType2 { inherit pname version src; };
@@ -22,11 +23,12 @@ appimageTools.wrapType2 {
     cp -r ${extracted}/usr/share/icons $out/share/
     cp ${extracted}/hayase.desktop $out/share/applications/
     substituteInPlace $out/share/applications/hayase.desktop \
-      --replace-fail 'Exec=AppRun' 'Exec=hayase --ozone-platform=x11'
+      --replace-fail 'Exec=AppRun' 'Exec=hayase${lib.optionalString forceX11 " --ozone-platform=x11"}'
   '';
 
   meta = {
-    description = "Stream anime torrents instantly, real-time with no waiting for downloads to finish! 🍿";
+    description = "Stream your torrents real-time, without waiting for downloads.";
+    longDescription = "Hayase is a bring-your-own-content application. It does not ship or link to unofficial libraries, it simply lets you organise and watch the media you already have permission to access.";
     homepage = "https://hayase.watch/";
     license = lib.licenses.bsl11;
     maintainers = [ lib.maintainers.juliuskreutz ];
