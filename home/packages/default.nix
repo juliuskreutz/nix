@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  laptop,
   ...
 }:
 {
@@ -61,6 +62,6 @@
     nodejs
 
     # Custom
-    (callPackage ./hayase.nix { forceX11 = true; })
+    (callPackage ./hayase.nix { forceX11 = laptop; })
   ];
 }

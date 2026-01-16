@@ -42,7 +42,7 @@
                   useGlobalPkgs = true;
                   useUserPackages = true;
                   extraSpecialArgs = {
-                    inherit inputs secrets;
+                    inherit inputs secrets laptop;
                   };
                   users.julius = ./home;
                 };
