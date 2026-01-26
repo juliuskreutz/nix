@@ -62,6 +62,6 @@
     nodejs
 
     # Custom
-    (callPackage ./hayase.nix { forceX11 = laptop; })
+    (callPackage ./hayase.nix { })
   ];
 }

@@ -2,7 +2,6 @@
   lib,
   appimageTools,
   fetchurl,
-  forceX11 ? false,
 }:
 let
   pname = "hayase";
@@ -23,7 +22,7 @@ appimageTools.wrapType2 {
     cp -r ${extracted}/usr/share/icons $out/share/
     cp ${extracted}/hayase.desktop $out/share/applications/
     substituteInPlace $out/share/applications/hayase.desktop \
-      --replace-fail 'Exec=AppRun' 'Exec=hayase${lib.optionalString forceX11 " --ozone-platform=x11"}'
+      --replace-fail 'Exec=AppRun' 'Exec=hayase'
   '';
 
   meta = {
