@@ -62,6 +62,6 @@
     nodejs
 
     # Custom
-    (callPackage ./hayase.nix { })
+    (callPackage ./hayase.nix { forceX11 = true; })
   ];
 }
