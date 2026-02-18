@@ -54,28 +54,28 @@
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             local on_attach = function(client, bufnr)
-          	  local opts = { buffer = bufnr }
+              local opts = { buffer = bufnr }
 
-          	  local telescope = require("telescope.builtin")
-          	  vim.keymap.set("n", "gd", telescope.lsp_definitions, opts)
-          	  vim.keymap.set("n", "gr", telescope.lsp_references, opts)
+              local telescope = require("telescope.builtin")
+              vim.keymap.set("n", "gd", telescope.lsp_definitions, opts)
+              vim.keymap.set("n", "gr", telescope.lsp_references, opts)
 
-          	  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-          	  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+              vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+              vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
-          	  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+              vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 
-          	  if client.server_capabilities.inlayHintProvider then
-          		vim.lsp.inlay_hint.enable(true)
-          	  end
+              if client.server_capabilities.inlayHintProvider then
+                vim.lsp.inlay_hint.enable(true)
+              end
             end
 
             for name, config in pairs(opts.servers) do
-                config.capabilities = capabilities
-                config.on_attach = on_attach
+              config.capabilities = capabilities
+              config.on_attach = on_attach
 
-                vim.lsp.config(name, config)
-                vim.lsp.enable(name)
+              vim.lsp.config(name, config)
+              vim.lsp.enable(name)
             end
 
             local cmp = require("cmp")
