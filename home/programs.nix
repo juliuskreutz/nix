@@ -34,24 +34,15 @@
   programs.vscode = {
     enable = true;
     profiles.default = {
-      extensions =
-        with pkgs.vscode-extensions;
-        [
-          pkief.material-icon-theme
-          wakatime.vscode-wakatime
-          bradlc.vscode-tailwindcss
-          fill-labs.dependi
-          james-yu.latex-workshop
-          biomejs.biome
-        ]
-        ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-          {
-            name = "native-preview";
-            publisher = "TypeScriptTeam";
-            version = "0.20251024.1";
-            sha256 = "sha256-BcHGvddKXkjZry+jSibGd8dvDoEkv4jxAIFqWF37Y+o=";
-          }
-        ];
+      extensions = with pkgs.vscode-extensions; [
+        pkief.material-icon-theme
+        wakatime.vscode-wakatime
+        bradlc.vscode-tailwindcss
+        fill-labs.dependi
+        james-yu.latex-workshop
+        biomejs.biome
+        dart-code.flutter
+      ];
       userSettings = {
         "workbench.iconTheme" = lib.mkForce "material-icon-theme";
         "workbench.colorTheme" = "Catppuccin Macchiato";

@@ -27,10 +27,11 @@
   gtk = {
     enable = true;
     theme = {
-      name = "catppuccin-macchiato-blue-compact";
+      name = "catppuccin-macchiato-peach-compact";
       package = pkgs.catppuccin-gtk.override {
         variant = "macchiato";
         size = "compact";
+        accents = [ "peach" ];
       };
     };
   };
