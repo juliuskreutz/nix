@@ -18,8 +18,10 @@
   services.displayManager.sessionPackages = [ pkgs.river-classic ];
   services.displayManager.sddm = {
     enable = true;
-    wayland.enable = true;
-    package = pkgs.kdePackages.sddm;
+    wayland = {
+      enable = true;
+      compositor = "kwin";
+    };
   };
   services.xserver.xkb.layout = "de";
 
