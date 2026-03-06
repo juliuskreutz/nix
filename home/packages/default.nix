@@ -43,7 +43,7 @@
     feh
     ffmpeg
     gh
-    neofetch
+    fastfetch
     ntfs3g
     ripgrep
     tokei
