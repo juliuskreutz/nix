@@ -8,6 +8,7 @@
         diffview-nvim
         telescope-nvim
       ];
+      cmd = "Neogit";
       config = true;
     }
   ];

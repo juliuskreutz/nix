@@ -4,7 +4,6 @@
     ./autopairs.nix
     ./cmp.nix
     ./conform.nix
-    ./copilot.nix
     ./crates.nix
     ./fidget.nix
     ./git-blame.nix
@@ -23,6 +22,7 @@
     ./todo-comments.nix
     ./treesitter.nix
     ./trouble.nix
+    ./typst-preview.nix
     ./undotree.nix
     ./wakatime.nix
   ];

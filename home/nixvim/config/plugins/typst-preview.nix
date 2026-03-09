@@ -2,8 +2,8 @@
 {
   programs.nixvim.plugins.lazy.plugins = with pkgs.vimPlugins; [
     {
-      pkg = markdown-preview-nvim;
-      ft = "markdown";
+      pkg = typst-preview-nvim;
+      ft = "typst";
     }
   ];
 }

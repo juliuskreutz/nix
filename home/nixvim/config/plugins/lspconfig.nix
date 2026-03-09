@@ -45,6 +45,11 @@
           zls = config.lib.nixvim.emptyTable;
           clangd = config.lib.nixvim.emptyTable;
           hls = config.lib.nixvim.emptyTable;
+          tinymist = {
+            settings = {
+              formatterMode = "typstyle";
+            };
+          };
         };
       };
       config =
