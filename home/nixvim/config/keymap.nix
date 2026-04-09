@@ -37,9 +37,7 @@
       {
         mode = "n";
         key = "<leader>e";
-        action.__raw =
-          # lua
-          "vim.diagnostic.open_float";
+        action.__raw = "vim.diagnostic.open_float";
       }
     ];
   };

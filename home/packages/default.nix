@@ -12,7 +12,7 @@
     openvpn
     pavucontrol
     proton-pass
-    protonvpn-gui
+    proton-vpn
     veracrypt
     vesktop
     xournalpp

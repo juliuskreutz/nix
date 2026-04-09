@@ -6,10 +6,9 @@
     ./conform.nix
     ./crates.nix
     ./fidget.nix
-    ./git-blame.nix
     ./gitsigns.nix
     ./indent-blankline.nix
-    ./lspconfig.nix
+    ./lsp.nix
     ./lualine.nix
     ./markdown-preview.nix
     ./neogit.nix
@@ -22,10 +21,8 @@
     ./todo-comments.nix
     ./treesitter.nix
     ./trouble.nix
-    ./typst-preview.nix
     ./undotree.nix
     ./wakatime.nix
+    ./web-devicons.nix
   ];
-
-  programs.nixvim.plugins.lazy.enable = true;
 }

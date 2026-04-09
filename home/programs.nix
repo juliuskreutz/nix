@@ -91,8 +91,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "sindresorhus";
           repo = "pure";
-          rev = "v1.24.0";
-          sha256 = "sha256-LfrZUv0UMVyygPd1RAv2EIWEvds2n0iEG8G2q7h5izM=";
+          rev = "v1.27.1";
+          sha256 = "sha256-Fhk4nlVPS09oh0coLsBnjrKncQGE6cUEynzDO2Skiq8=";
         };
       }
       {

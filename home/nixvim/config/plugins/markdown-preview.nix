@@ -1,9 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
-  programs.nixvim.plugins.lazy.plugins = with pkgs.vimPlugins; [
-    {
-      pkg = markdown-preview-nvim;
-      ft = "markdown";
-    }
-  ];
+  programs.nixvim.plugins.markdown-preview.enable = true;
 }
