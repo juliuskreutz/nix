@@ -26,10 +26,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.networkmanager = {
-    enable = true;
-    plugins = [ pkgs.networkmanager-openvpn ];
-  };
+  networking.networkmanager.enable = true;
   networking.nftables.enable = true;
 
   time.timeZone = "Europe/Berlin";
@@ -44,11 +41,7 @@
 
   users.users.julius = {
     isNormalUser = true;
-    description = "Julius Kreutz";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
+    extraGroups = [ "wheel" ];
     shell = pkgs.zsh;
   };
   security.sudo.wheelNeedsPassword = false;

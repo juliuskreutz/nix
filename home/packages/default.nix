@@ -9,13 +9,11 @@
     jetbrains.idea
     krita
     libreoffice-qt
-    openvpn
     pavucontrol
     proton-pass
     proton-vpn
     veracrypt
     vesktop
-    xournalpp
     signal-desktop
     element-desktop
     zoho-mail-desktop
@@ -28,12 +26,8 @@
     noto-fonts-color-emoji
 
     # LSP
-    dockerfile-language-server
     jq
-    nixd
     nixfmt
-    prettierd
-    yaml-language-server
 
     # Util
     brightnessctl
@@ -44,7 +38,6 @@
     ffmpeg
     gh
     fastfetch
-    ntfs3g
     ripgrep
     tokei
     unrar
@@ -52,13 +45,9 @@
     wakatime-cli
     wget
     wl-clipboard
-    xclip
     xdg-utils
     zip
     git-crypt
-
-    # Programming
-    nodejs
 
     # Custom
     (callPackage ./hayase.nix { forceX11 = true; })
