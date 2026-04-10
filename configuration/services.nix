@@ -6,27 +6,24 @@
     config.common.default = [ "wlr" ];
   };
 
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
+  catppuccin.sddm = {
+    background = ../wallpaper.png;
+    loginBackground = false;
+    accent = "blue";
   };
 
-  catppuccin.sddm.background = ../wallpaper.png;
-  catppuccin.sddm.loginBackground = false;
-  catppuccin.sddm.accent = "blue";
-
-  services.displayManager.sessionPackages = [ pkgs.river-classic ];
-  services.displayManager.sddm = {
-    enable = true;
-    wayland = {
+  services.displayManager = {
+    sessionPackages = [ pkgs.river-classic ];
+    sddm = {
       enable = true;
-      compositor = "kwin";
+      wayland = {
+        enable = true;
+        compositor = "kwin";
+      };
     };
   };
   services.xserver.xkb.layout = "de";
-
   services.pcscd.enable = true;
-
   services.blueman.enable = true;
 
   # Important for gpg

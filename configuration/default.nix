@@ -23,18 +23,20 @@
     "flakes"
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
 
   networking.networkmanager.enable = true;
-  networking.nftables.enable = true;
 
   time.timeZone = "Europe/Berlin";
 
-  i18n.defaultLocale = "en_GB.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_TIME = "de_DE.UTF-8";
+  i18n = {
+    defaultLocale = "en_GB.UTF-8";
+    extraLocaleSettings = {
+      LC_TIME = "de_DE.UTF-8";
+    };
   };
 
   console.keyMap = "de";
@@ -46,8 +48,10 @@
   };
   security.sudo.wheelNeedsPassword = false;
 
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowBroken = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = true;
+  };
 
   system.stateVersion = "25.11";
 }

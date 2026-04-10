@@ -5,7 +5,32 @@
   ...
 }:
 {
+  programs.chromium.enable = true;
+  programs.vesktop = {
+    enable = true;
+    vencord.settings = {
+      plugins = {
+        FakeNitro.enabled = true;
+        SilentTyping = {
+          enabled = true;
+          showIcon = true;
+        };
+      };
+    };
+  };
+  programs.element-desktop.enable = true;
+
+  programs.bottom.enable = true;
+  programs.jq.enable = true;
+  programs.fastfetch.enable = true;
+  programs.ripgrep.enable = true;
   programs.direnv.enable = true;
+  programs.gpg.enable = true;
+  programs.bat.enable = true;
+  programs.gh = {
+    enable = true;
+    settings.git_protocol = "ssh";
+  };
   programs.fzf = {
     enable = true;
     defaultCommand = "${pkgs.fd}/bin/fd --type f --color=always";
@@ -25,23 +50,14 @@
     hidden = true;
     extraOptions = [ "--no-ignore" ];
   };
-  programs.gpg = {
-    enable = true;
-    scdaemonSettings.disable-ccid = true;
-  };
-  programs.chromium.enable = true;
-  programs.bat.enable = true;
   programs.vscode = {
     enable = true;
     profiles.default = {
       extensions = with pkgs.vscode-extensions; [
         pkief.material-icon-theme
         wakatime.vscode-wakatime
-        bradlc.vscode-tailwindcss
         fill-labs.dependi
-        james-yu.latex-workshop
         biomejs.biome
-        dart-code.flutter
       ];
       userSettings = {
         "workbench.iconTheme" = lib.mkForce "material-icon-theme";
@@ -50,8 +66,6 @@
         "editor.fontLigatures" = true;
         "editor.mouseWheelZoom" = true;
         "editor.formatOnSave" = true;
-        "latex-workshop.formatting.latex" = "latexindent";
-        "latex-workshop.latex.build.forceRecipeUsage" = false;
         "terminal.integrated.stickyScroll.enabled" = false;
         "biome.suggestInstallingGlobally" = false;
       };
