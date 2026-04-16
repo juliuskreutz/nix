@@ -58,6 +58,7 @@
         wakatime.vscode-wakatime
         fill-labs.dependi
         biomejs.biome
+        myriad-dreamin.tinymist
       ];
       userSettings = {
         "workbench.iconTheme" = lib.mkForce "material-icon-theme";

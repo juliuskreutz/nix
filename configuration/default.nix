@@ -28,7 +28,10 @@
     efi.canTouchEfiVariables = true;
   };
 
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    plugins = [ pkgs.networkmanager-openvpn ];
+  };
 
   time.timeZone = "Europe/Berlin";
 
