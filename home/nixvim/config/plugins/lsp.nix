@@ -10,6 +10,7 @@
         nixd.enable = true;
         rust_analyzer = {
           enable = true;
+          packageFallback = true;
           config.settings.rust-analyzer.check.command = "clippy";
         };
         taplo.enable = true;
