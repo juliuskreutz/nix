@@ -26,6 +26,8 @@
       conceallevel = 2;
 
       showbreak = "↳ ";
+
+      undofile = true;
     };
   };
 }
