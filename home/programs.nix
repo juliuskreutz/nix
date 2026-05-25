@@ -75,7 +75,7 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = secrets.ssh.matchBlocks;
+    settings = secrets.ssh.settings;
   };
   programs.git = {
     enable = true;
