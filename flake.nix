@@ -4,10 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     catppuccin.url = "github:catppuccin/nix";
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixvim.url = "github:nix-community/nixvim";
     comic-code-ligatures-nerd-font = {
       url = "github:juliuskreutz/ComicCodeLigaturesNerdFont";
       inputs.nixpkgs.follows = "nixpkgs";
