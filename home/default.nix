@@ -16,6 +16,7 @@
 
   programs.home-manager.enable = true;
   home.stateVersion = "26.05";
+  home.enableNixpkgsReleaseCheck = false;
 
   catppuccin = {
     enable = true;
