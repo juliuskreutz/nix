@@ -6,11 +6,11 @@
 }:
 let
   pname = "hayase";
-  version = "6.4.69";
+  version = "6.4.74";
 
   src = fetchurl {
     url = "https://api.hayase.watch/files/linux-hayase-${version}-linux.AppImage";
-    hash = "sha256-sFw3oimI+2iNknAyJ+8WrhL6wbcHcqkOepcgLSpRHlY=";
+    hash = "sha256-6CXUgYpX2Ng6+nu1ownQWHSaEu/IfTT+0PvSvZvnOAw=";
   };
 
   extracted = appimageTools.extractType2 { inherit pname version src; };
