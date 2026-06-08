@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 {
   services.gpg-agent = {
     enable = true;
@@ -9,7 +9,4 @@
     sshKeys = [ "B22F697B459E84F8146F1809917143A596F984D8" ];
   };
   services.flameshot.enable = true;
-  systemd.user.services.set-SSH_AUTH_SOCK = {
-    Install.WantedBy = lib.mkForce [ "default.target" ];
-  };
 }
