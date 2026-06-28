@@ -16,7 +16,14 @@
         taplo.enable = true;
         basedpyright.enable = true;
         ruff.enable = true;
-        clangd.enable = true;
+        clangd = {
+          enable = true;
+          config.filetypes = [
+            "c"
+            "cpp"
+            "opencl"
+          ];
+        };
       };
       keymaps = [
         {
