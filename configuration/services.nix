@@ -30,6 +30,7 @@
     };
   };
   services.xserver.xkb.layout = "de";
+  services.xserver.xkb.variant = "nodeadkeys";
   services.pcscd.enable = true;
   services.blueman.enable = true;
 
