@@ -53,13 +53,24 @@
   programs.vscode = {
     enable = true;
     profiles.default = {
-      extensions = with pkgs.vscode-extensions; [
-        pkief.material-icon-theme
-        wakatime.vscode-wakatime
-        fill-labs.dependi
-        biomejs.biome
-        myriad-dreamin.tinymist
-      ];
+      extensions =
+        with pkgs.vscode-extensions;
+        [
+          pkief.material-icon-theme
+          wakatime.vscode-wakatime
+          fill-labs.dependi
+          biomejs.biome
+          myriad-dreamin.tinymist
+          ms-python.python
+        ]
+        ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+          {
+            name = "manim-sideview";
+            publisher = "Rickaym";
+            version = "0.4.3";
+            sha256 = "sha256-ABr94EOprY2KZuMOVgr0mSl12bW/xO6xqlFXbV1hcMY=";
+          }
+        ];
       userSettings = {
         "workbench.iconTheme" = lib.mkForce "material-icon-theme";
         "workbench.colorTheme" = "Catppuccin Macchiato";
