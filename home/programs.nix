@@ -59,9 +59,9 @@
           pkief.material-icon-theme
           wakatime.vscode-wakatime
           fill-labs.dependi
-          biomejs.biome
           myriad-dreamin.tinymist
           ms-python.python
+          charliermarsh.ruff
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
@@ -79,7 +79,6 @@
         "editor.mouseWheelZoom" = true;
         "editor.formatOnSave" = true;
         "terminal.integrated.stickyScroll.enabled" = false;
-        "biome.suggestInstallingGlobally" = false;
       };
     };
   };
