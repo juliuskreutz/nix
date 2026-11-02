@@ -62,6 +62,7 @@
           myriad-dreamin.tinymist
           ms-python.python
           charliermarsh.ruff
+          oxc.oxc-vscode
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
