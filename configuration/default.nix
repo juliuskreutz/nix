@@ -33,6 +33,10 @@
     enable = true;
     plugins = [ pkgs.networkmanager-openvpn ];
   };
+  networking.firewall = {
+    allowedTCPPorts = [ 53317 ];
+    allowedUDPPorts = [ 53317 ];
+  };
 
   time.timeZone = "Europe/Berlin";
 
