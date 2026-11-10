@@ -63,6 +63,7 @@
           ms-python.python
           charliermarsh.ruff
           oxc.oxc-vscode
+          james-yu.latex-workshop
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
@@ -135,7 +136,7 @@
       # bash
       ''
         bindkey -v '^?' backward-delete-char
-        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always --icons $realpath'
+        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always --icons=auto $realpath'
       '';
   };
   programs.ghostty = {

@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   inputs,
   laptop,
@@ -10,6 +11,9 @@
     ./services.nix
     ./programs.nix
     inputs.catppuccin.nixosModules.catppuccin
+  ]
+  ++ lib.optionals laptop [
+    ./temp.nix
   ];
 
   catppuccin = {
