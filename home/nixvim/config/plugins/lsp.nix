@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   ...
 }:
@@ -23,6 +24,19 @@
             "cpp"
             "opencl"
           ];
+        };
+        gopls.enable = true;
+        sqlruff = {
+          enable = true;
+          config = {
+            cmd = [
+              "${pkgs.sqruff}/bin/sqruff"
+              "lsp"
+            ];
+            filetypes = [
+              "sql"
+            ];
+          };
         };
       };
       keymaps = [
