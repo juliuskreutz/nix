@@ -10,7 +10,7 @@
     # Programs
     jetbrains.idea
     krita
-    libreoffice-qt
+    onlyoffice-desktopeditors
     pavucontrol
     proton-pass
     proton-vpn

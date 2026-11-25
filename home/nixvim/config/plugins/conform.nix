@@ -1,5 +1,6 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  programs.nixvim.extraPackages = with pkgs; [ rumdl ];
   programs.nixvim.plugins.conform-nvim = {
     enable = true;
     settings = {
