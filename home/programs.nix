@@ -5,7 +5,13 @@
   ...
 }:
 {
-  programs.chromium.enable = true;
+  programs.chromium = {
+    enable = true;
+    extensions = [
+      "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin
+      "ghmbeldphafepmbegfdlkpapadhbakde" # Proton Pass
+    ];
+  };
   programs.vesktop = {
     enable = true;
     vencord.settings = {
