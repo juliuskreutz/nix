@@ -70,6 +70,7 @@
           charliermarsh.ruff
           oxc.oxc-vscode
           james-yu.latex-workshop
+          anthropic.claude-code
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
